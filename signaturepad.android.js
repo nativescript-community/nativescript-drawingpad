@@ -34,10 +34,12 @@ var SignaturePad = (function (_super) {
     };
     Object.defineProperty(SignaturePad.prototype, "drawing", {
         get: function () {
-            // check if empty first
-            if (!this._android.isEmpty())
-                console.log('has drawing');
-            return this._android.getTransparentSignatureBitmap();
+            if (!this._android.isEmpty()) {
+                return this._android.getTransparentSignatureBitmap();
+            }
+            else {
+                throw new Error("No drawing in the pad.");
+            }
         },
         enumerable: true,
         configurable: true
