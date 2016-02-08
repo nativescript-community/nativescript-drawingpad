@@ -1,0 +1,12 @@
+﻿//default elements
+android {
+    productFlavors {
+        "nativescriptsignaturepad" {
+            dimension "nativescriptsignaturepad"
+        }
+    }
+}
+
+dependencies {
+     compile "com.github.gcacace:signature-pad:1.0.3"
+}
