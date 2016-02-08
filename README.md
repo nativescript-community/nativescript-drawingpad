@@ -20,7 +20,14 @@ From your command prompt/termial go to your app's root folder and execute:
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       xmlns:SignaturePad="nativescript-signaturepad">
      <StackLayout>
-         <SignaturePad:SignaturePad id="drawingPad" penColor="#3489db" penWidth="5" />        
+            <SignaturePad:SignaturePad
+                height="200"
+                id="drawingPad"     
+                penColor="#ff4081" 
+                penWidth="3" />   
+            
+            <button text="Get Drawing" tap="getDrawing" />
+            <button text="Clear Drawing" tap="clearDrawing" />
      </StackLayout>
 </Page>
 ```
@@ -28,16 +35,22 @@ From your command prompt/termial go to your app's root folder and execute:
 #### JS:
 ```JS
 var frame = require("ui/frame");
+
+// To get the drawing...
 function getDrawing(args) {
     // get reference to the drawing pad
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
     // then access the 'drawing' property (Bitmap on Android) of the signaturepad
     var drawingImage = pad.drawing;
-
-    // If you want to clear the signature/drawing...
-    pad.clearDrawing();
 }
 exports.getDrawing = getDrawing;
+
+// If you want to clear the signature/drawing...
+function clearDrawing(args) {
+    var pad = frame.topmost().currentPage.getViewById("drawingPad");
+    pad.clearDrawing();
+}
+exports.clearDrawing = clearDrawing;
 ```
 
 ## Attributes

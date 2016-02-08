@@ -12,13 +12,14 @@
                    class="message" textWrap="true" />
 
             <SignaturePad:SignaturePad
-                height="270"
+                height="200"
                 id="drawingPad"     
                 penColor="#ff4081" 
                 penWidth="3" />   
             
             <Button text="Get Drawing" tap="getDrawing" />
             <button text="Clear Drawing" tap="clearDrawing" />
+            
         </StackLayout>
     </ScrollView>
 </Page>
