@@ -1,5 +1,5 @@
 ﻿import definition = require("signaturepad");
-import view = require("ui/view");
+import view = require("ui/core/view");
 import {PropertyMetadata} from "ui/core/proxy";
 import {Property, PropertyMetadataSettings} from "ui/core/dependency-observable";
 
@@ -20,8 +20,8 @@ export class SignaturePad extends view.View implements definition.SignaturePad {
     public static penColorProperty = penColorProperty;
     public static penWidthProperty = penWidthProperty;
 
-    constructor() {
-        super();
+    constructor(options?: definition.Options) {
+        super(options);
     }
 
     get penColor(): number {

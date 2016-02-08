@@ -3,15 +3,15 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var view = require("ui/view");
+var view = require("ui/core/view");
 var proxy_1 = require("ui/core/proxy");
 var dependency_observable_1 = require("ui/core/dependency-observable");
 var penColorProperty = new dependency_observable_1.Property("penColor", "SignaturePad", new proxy_1.PropertyMetadata(undefined, dependency_observable_1.PropertyMetadataSettings.None));
 var penWidthProperty = new dependency_observable_1.Property("penWidth", "SignaturePad", new proxy_1.PropertyMetadata(undefined, dependency_observable_1.PropertyMetadataSettings.None));
 var SignaturePad = (function (_super) {
     __extends(SignaturePad, _super);
-    function SignaturePad() {
-        _super.call(this);
+    function SignaturePad(options) {
+        _super.call(this, options);
     }
     Object.defineProperty(SignaturePad.prototype, "penColor", {
         get: function () {
