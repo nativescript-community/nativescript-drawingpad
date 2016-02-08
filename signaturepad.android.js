@@ -5,26 +5,26 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var common = require("./signaturepad-common");
 global.moduleMerge(common, exports);
-var CardView = (function (_super) {
-    __extends(CardView, _super);
-    function CardView() {
+var SignaturePad = (function (_super) {
+    __extends(SignaturePad, _super);
+    function SignaturePad() {
         _super.call(this);
     }
-    Object.defineProperty(CardView.prototype, "android", {
+    Object.defineProperty(SignaturePad.prototype, "android", {
         get: function () {
             return this._android;
         },
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(CardView.prototype, "_nativeView", {
+    Object.defineProperty(SignaturePad.prototype, "_nativeView", {
         get: function () {
             return this._android;
         },
         enumerable: true,
         configurable: true
     });
-    CardView.prototype._createUI = function () {
+    SignaturePad.prototype._createUI = function () {
         this._android = new com.github.gcacace.signaturepad.views.SignaturePad(this._context, null);
         if (!this._androidViewId) {
             this._androidViewId = android.view.View.generateViewId();
@@ -35,6 +35,6 @@ var CardView = (function (_super) {
         if (this.penWidth)
             this._android.setMinWidth(this.penWidth);
     };
-    return CardView;
+    return SignaturePad;
 })(common.SignaturePad);
-exports.CardView = CardView;
+exports.SignaturePad = SignaturePad;

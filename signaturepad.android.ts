@@ -2,7 +2,7 @@
 
 global.moduleMerge(common, exports);
 
-export class CardView extends common.SignaturePad {
+export class SignaturePad extends common.SignaturePad {
     private _android: com.github.gcacace.signaturepad.views.SignaturePad;
 
     constructor() {
