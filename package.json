@@ -1,6 +1,6 @@
 {
   "name": "nativescript-signaturepad",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "signaturepad.js",
   "description": "A NativeScript plugin to provide a way to capture signatures (and any other drawing) from the device screen.",
   "nativescript": {
