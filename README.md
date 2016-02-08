@@ -1,6 +1,8 @@
 # NativeScript-SignaturePad :pencil:
 NativeScript plugin to provide a way to capture signatures (or any drawing) from the device.
 
+## WARNING - iOS is in development and should be available soon. ANDROID ONLY for now.
+
 #### Platform controls used: 
 Android | iOS
 ---------- | -----------
