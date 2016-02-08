@@ -20,11 +20,22 @@ From your command prompt/termial go to your app's root folder and execute:
 </Page>
 ```
 
+```JS
+var frame = require("ui/frame");
+function getDrawing(args) {
+    // get reference to the drawing pad
+    var pad = frame.topmost().currentPage.getViewById("drawingPad");
+    // then access the 'drawing' property of the signaturepad;
+    var drawingImage = pad.drawing;
+}
+exports.getDrawing = getDrawing;
+```
+
 ## Attributes
 **penColor - (color string)** - *optional*
 
-Attribute to specify the pen(stroke) color to use.
+Attribute to specify the pen (stroke) color to use.
 
 **penWidth - (int)** - *optional*
 
-Attribute to specify the pen(stroke) width to use.
+Attribute to specify the pen (stroke) width to use.
