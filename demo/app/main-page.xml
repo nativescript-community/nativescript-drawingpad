@@ -18,7 +18,7 @@
                 penWidth="3" />   
             
             <Button text="Get Drawing" tap="getDrawing" />
-            <!--<button text="Clear Drawing" tap="clearDrawing" />-->
+            <button text="Clear Drawing" tap="clearDrawing" />
         </StackLayout>
     </ScrollView>
 </Page>

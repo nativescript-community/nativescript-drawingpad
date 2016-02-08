@@ -23,7 +23,6 @@ function padLoaded(args) {
 }
 exports.padLoaded = padLoaded;
 
-
 function getDrawing(args) {
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
     var pic = pad.drawing;
@@ -33,6 +32,6 @@ exports.getDrawing = getDrawing;
 
 function clearDrawing(args) {
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    pad.clear();
+    pad.clearDrawing();
 }
 exports.clearDrawing = clearDrawing;

@@ -9,7 +9,7 @@ declare module "signaturepad" {
     /**
      * Represents a Signature Pad (drawing pad) component.
      */
-    export class Video extends view.View {
+    export class SignaturePad extends view.View {
         public static penColorProperty: dependencyObservable.Property;
         public static penWidthProperty: dependencyObservable.Property;
 
@@ -37,6 +37,11 @@ declare module "signaturepad" {
          * Gets or set the stroke width attribute
          */
         penWidth: any;
+
+        /*
+        * Use this to clear/erase the pad
+        */
+        clearDrawing: Function;
     }
 
     /**

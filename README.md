@@ -31,8 +31,11 @@ var frame = require("ui/frame");
 function getDrawing(args) {
     // get reference to the drawing pad
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    // then access the 'drawing' property of the signaturepad;
+    // then access the 'drawing' property (Bitmap on Android) of the signaturepad
     var drawingImage = pad.drawing;
+
+    // If you want to clear the signature/drawing...
+    pad.clearDrawing();
 }
 exports.getDrawing = getDrawing;
 ```

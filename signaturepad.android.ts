@@ -34,4 +34,12 @@ export class SignaturePad extends common.SignaturePad {
         }
     }
 
+    public clearDrawing() {
+        try {
+            this._android.clear();
+        } catch (ex) {
+            console.log("Error clearing the pad: " + ex);
+        }
+    }
+
 }

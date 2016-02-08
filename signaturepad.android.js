@@ -44,6 +44,14 @@ var SignaturePad = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    SignaturePad.prototype.clearDrawing = function () {
+        try {
+            this._android.clear();
+        }
+        catch (ex) {
+            console.log("Error clearing the pad: " + ex);
+        }
+    };
     return SignaturePad;
 })(common.SignaturePad);
 exports.SignaturePad = SignaturePad;
