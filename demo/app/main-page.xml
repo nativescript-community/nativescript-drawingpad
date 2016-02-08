@@ -1,0 +1,13 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+      xmlns:SignaturePad="nativescript-signaturepad">
+    <ScrollView>
+        <StackLayout>
+            <label text="&lt;SignaturePad:SignaturePad id='sketchPad' &gt;" class="title" textWrap="true" />
+
+            <SignaturePad:SignaturePad id="drawingPad" penColor="#3489db" penWidth="5" />
+            <Button text="Get Drawing" />
+            
+            
+        </StackLayout>
+    </ScrollView>
+</Page>

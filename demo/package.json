@@ -1,0 +1,15 @@
+{
+	"nativescript": {
+		"id": "org.nativescript.signaturepad",
+		"tns-android": {
+			"version": "1.5.1"
+		},
+		"tns-ios": {
+			"version": "1.5.2"
+		}
+	},
+	"dependencies": {
+		"nativescript-signaturepad": "file:..",
+		"tns-core-modules": "latest"
+	}
+}
