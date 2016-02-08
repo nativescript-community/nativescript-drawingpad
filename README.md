@@ -11,9 +11,11 @@ Android | iOS
 
 ## Installation
 From your command prompt/termial go to your app's root folder and execute:
+
 `npm install nativescript-signaturepad`
 
 ## Usage
+#### XML:
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
       xmlns:SignaturePad="nativescript-signaturepad">
@@ -23,6 +25,7 @@ From your command prompt/termial go to your app's root folder and execute:
 </Page>
 ```
 
+#### JS:
 ```JS
 var frame = require("ui/frame");
 function getDrawing(args) {
@@ -38,7 +41,13 @@ exports.getDrawing = getDrawing;
 **penColor - (color string)** - *optional*
 
 Attribute to specify the pen (stroke) color to use.
-
+ 
 **penWidth - (int)** - *optional*
 
 Attribute to specify the pen (stroke) width to use.
+
+## Sample Screenshots
+
+Sample 1 |  Sample 2 
+-------- | ---------
+![Sample1](sample1.png) | ![Sample2](sample2.png)
