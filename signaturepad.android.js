@@ -38,7 +38,7 @@ var SignaturePad = (function (_super) {
                 return this._android.getTransparentSignatureBitmap();
             }
             else {
-                throw new Error("No drawing in the pad.");
+                console.log("No drawing in the pad.");
             }
         },
         enumerable: true,

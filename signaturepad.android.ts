@@ -30,7 +30,7 @@ export class SignaturePad extends common.SignaturePad {
         if (!this._android.isEmpty()) {
             return this._android.getTransparentSignatureBitmap();
         } else {
-            throw new Error("No drawing in the pad.");
+            console.log("No drawing in the pad.");
         }
     }
 
