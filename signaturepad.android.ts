@@ -1,13 +1,10 @@
 ﻿import common = require("./signaturepad-common");
+import color = require("color");
 
 global.moduleMerge(common, exports);
 
 export class SignaturePad extends common.SignaturePad {
     private _android: com.github.gcacace.signaturepad.views.SignaturePad;
-
-    constructor() {
-        super();
-    }
 
     get android(): com.github.gcacace.signaturepad.views.SignaturePad {
         return this._android;
@@ -21,16 +18,19 @@ export class SignaturePad extends common.SignaturePad {
 
         this._android = new com.github.gcacace.signaturepad.views.SignaturePad(this._context, null);
 
-        if (!this._androidViewId) {
-            this._androidViewId = android.view.View.generateViewId();
-        }
-        this._android.setId(this._androidViewId);
-
         if (this.penColor)
-            this._android.setPenColor(this.penColor.android);
+            this._android.setPenColor(new color.Color(this.penColor).android);
 
         if (this.penWidth)
             this._android.setMinWidth(this.penWidth);
 
     }
+
+    get drawing(): any {
+        // check if empty first
+        if (!this._android.isEmpty())
+            console.log('has drawing');
+            return this._android.getTransparentSignatureBitmap();
+    }
+
 }

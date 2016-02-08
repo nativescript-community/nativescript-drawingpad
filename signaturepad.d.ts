@@ -23,6 +23,11 @@ declare module "signaturepad" {
          */
         ios: any /* SignatureView */;
 
+        /*
+        * Gets the drawing from the signature pad view.
+        */
+        drawing: any; /* BitMap (Android) -- .png (iOS) */
+
         /**
         * Gets or set the stroke color attribute
         */

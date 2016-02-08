@@ -19,6 +19,7 @@ export class SignaturePad extends view.View implements definition.SignaturePad {
 
     public static penColorProperty = penColorProperty;
     public static penWidthProperty = penWidthProperty;
+    public static drawingProperty: any;
 
     constructor(options?: definition.Options) {
         super(options);
@@ -36,6 +37,10 @@ export class SignaturePad extends view.View implements definition.SignaturePad {
     }
     set penWidth(value: number) {
         this._setValue(SignaturePad.penWidthProperty, value);
+    }
+
+    get drawing(): any {
+        return this._getValue(SignaturePad.drawingProperty);
     }
 
 }

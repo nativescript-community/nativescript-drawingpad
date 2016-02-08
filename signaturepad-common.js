@@ -33,6 +33,13 @@ var SignaturePad = (function (_super) {
         enumerable: true,
         configurable: true
     });
+    Object.defineProperty(SignaturePad.prototype, "drawing", {
+        get: function () {
+            return this._getValue(SignaturePad.drawingProperty);
+        },
+        enumerable: true,
+        configurable: true
+    });
     SignaturePad.penColorProperty = penColorProperty;
     SignaturePad.penWidthProperty = penWidthProperty;
     return SignaturePad;

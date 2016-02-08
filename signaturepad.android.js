@@ -4,11 +4,12 @@ var __extends = (this && this.__extends) || function (d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
 var common = require("./signaturepad-common");
+var color = require("color");
 global.moduleMerge(common, exports);
 var SignaturePad = (function (_super) {
     __extends(SignaturePad, _super);
     function SignaturePad() {
-        _super.call(this);
+        _super.apply(this, arguments);
     }
     Object.defineProperty(SignaturePad.prototype, "android", {
         get: function () {
@@ -26,15 +27,21 @@ var SignaturePad = (function (_super) {
     });
     SignaturePad.prototype._createUI = function () {
         this._android = new com.github.gcacace.signaturepad.views.SignaturePad(this._context, null);
-        if (!this._androidViewId) {
-            this._androidViewId = android.view.View.generateViewId();
-        }
-        this._android.setId(this._androidViewId);
         if (this.penColor)
-            this._android.setPenColor(this.penColor.android);
+            this._android.setPenColor(new color.Color(this.penColor).android);
         if (this.penWidth)
             this._android.setMinWidth(this.penWidth);
     };
+    Object.defineProperty(SignaturePad.prototype, "drawing", {
+        get: function () {
+            // check if empty first
+            if (!this._android.isEmpty())
+                console.log('has drawing');
+            return this._android.getTransparentSignatureBitmap();
+        },
+        enumerable: true,
+        configurable: true
+    });
     return SignaturePad;
 })(common.SignaturePad);
 exports.SignaturePad = SignaturePad;
