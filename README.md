@@ -1,3 +1,6 @@
+[![npm](https://img.shields.io/npm/v/nativescript-signaturepad.svg)](https://www.npmjs.com/package/nativescript-signaturepad)
+[![npm](https://img.shields.io/npm/dt/nativescript-signaturepad.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-signaturepad)
+
 # NativeScript-SignaturePad :pencil:
 NativeScript plugin to provide a way to capture signatures (or any drawing) from the device.
 You can use this component to capture really anything you want that can be drawn on the screen. Go crazy with it!!!
