@@ -44,21 +44,4 @@ declare module "nativescript-drawingpad" {
         clearDrawing: Function;
     }
 
-    // /**
-    // * Provides common options for creating a drawing pad
-    // */
-    // export interface Options extends view.Options {
-
-    //     /**
-    //    * Gets or set the stroke color attribute
-    //    */
-    //     penColor: string;
-
-    //     /**
-    //      * Gets or set the stroke width attribute
-    //      */
-    //     penWidth: number;
-
-    // }
-
 }
