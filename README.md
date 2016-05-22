@@ -7,7 +7,7 @@ You can use this component to capture really anything you want that can be drawn
 
 ## WARNING - iOS is in development and should be available soon. ANDROID ONLY for now.
 
-#### Platform controls used: 
+#### Native Libraries: 
 Android | iOS
 ---------- | -----------
 [gcacace/android-signaturepad](https://github.com/gcacace/android-signaturepad) |  [SignatureView](https://cocoapods.org/pods/SignatureView)
@@ -20,18 +20,18 @@ From your command prompt/termial go to your app's root folder and execute:
 ## Usage
 #### XML:
 ```XML
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:DrawingPad="nativescript-drawingpad">
-     <StackLayout>
-            <DrawingPad:DrawingPad
-                height="200"
-                id="drawingPad"     
-                penColor="#ff4081" 
-                penWidth="3" />   
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
+    <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#03A9F4" />
+    <ScrollView>
+        <StackLayout>
+        
+            <DrawingPad:DrawingPad 
+            height="400" 
+            id="drawingPad" 
+            penColor="#ff4081" penWidth="3" />
             
-            <button text="Get Drawing" tap="getDrawingAsPic" />
-            <button text="Clear Drawing" tap="clearUserDrawing" />
-     </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </Page>
 ```
 
@@ -57,11 +57,7 @@ exports.getDrawingAsPic = getDrawingAsPic;
 // If you want to clear the signature/drawing...
 function clearUserDrawing(args) {
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    pad.clearDrawing().then(function() {
-        console.log('DrawingPad cleared.');
-    }, function(err) {
-        console.log(err);
-    });
+    pad.clearDrawing();
 }
 exports.clearUserDrawing = clearUserDrawing;
 ```

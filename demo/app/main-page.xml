@@ -1,17 +1,17 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
-    <Page.actionBar>
-        <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#03A9F4" />
-    </Page.actionBar>
+    <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#03A9F4" />
     <ScrollView>
         <StackLayout>
         
-            <DrawingPad:DrawingPad backgroundColor="black" 
-            margin="10" height="300" id="drawingPad" 
+            <DrawingPad:DrawingPad 
+            backgroundColor="black" 
+            margin="10" height="400" 
+            id="drawingPad" 
             penColor="#ff4081" penWidth="3" />
             
             <StackLayout orientation="horizontal">
-                <Button text="Get Drawing" color="green" tap="getMyDrawing" />
-                <button text="Clear Drawing" color="red" tap="clearMyDrawing" />
+                <Button text="Get Drawing" tap="getMyDrawing" />
+                <button text="Clear Drawing" tap="clearMyDrawing" />
             </StackLayout>
         </StackLayout>
     </ScrollView>

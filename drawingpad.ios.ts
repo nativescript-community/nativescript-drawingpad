@@ -52,7 +52,7 @@ export class DrawingPad extends common.DrawingPad {
     public getDrawing():Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                var data = this._ios.signatureData();
+                let data = this._ios.signatureData();
                 resolve(data);
             } catch (err) {
                 reject(err);

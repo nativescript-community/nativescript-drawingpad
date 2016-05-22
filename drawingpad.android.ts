@@ -35,7 +35,8 @@ export class DrawingPad extends common.DrawingPad {
         return new Promise((resolve, reject) => {
             try {
                 if (!this._android.isEmpty()) {
-                    resolve(this._android.getTransparentSignatureBitmap());
+                    let data = this._android.getTransparentSignatureBitmap();
+                    resolve(data);
                 } else {
                     reject("DrawingPad is empty.");
                 }
