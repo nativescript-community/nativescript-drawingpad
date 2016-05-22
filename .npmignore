@@ -5,5 +5,5 @@ nativescript-videoplayer.sln
 .sln
 *.sln
 demo/
-sample1.png
-sample2.png
+screens/
+*.gitattributes

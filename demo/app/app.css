@@ -5,8 +5,13 @@
 }
 
 button {
-    font-size: 42;
+    font-size: 18;
     horizontal-align: center;
+    margin: 10;
+}
+
+.red {
+    color: darkred;
 }
 
 .message {

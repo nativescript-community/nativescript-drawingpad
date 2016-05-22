@@ -1,8 +1,8 @@
 [![npm](https://img.shields.io/npm/v/nativescript-signaturepad.svg)](https://www.npmjs.com/package/nativescript-signaturepad)
 [![npm](https://img.shields.io/npm/dt/nativescript-signaturepad.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-signaturepad)
 
-# NativeScript-SignaturePad :pencil:
-NativeScript plugin to provide a way to capture signatures (or any drawing) from the device.
+# NativeScript-DrawingPad :pencil:
+NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device.
 You can use this component to capture really anything you want that can be drawn on the screen. Go crazy with it!!!
 
 ## WARNING - iOS is in development and should be available soon. ANDROID ONLY for now.
@@ -15,22 +15,22 @@ Android | iOS
 ## Installation
 From your command prompt/termial go to your app's root folder and execute:
 
-`npm install nativescript-signaturepad`
+`npm install nativescript-drawingpad`
 
 ## Usage
 #### XML:
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:SignaturePad="nativescript-signaturepad">
+      xmlns:DrawingPad="nativescript-drawingpad">
      <StackLayout>
-            <SignaturePad:SignaturePad
+            <DrawingPad:DrawingPad
                 height="200"
                 id="drawingPad"     
                 penColor="#ff4081" 
                 penWidth="3" />   
             
-            <button text="Get Drawing" tap="getDrawing" />
-            <button text="Clear Drawing" tap="clearDrawing" />
+            <button text="Get Drawing" tap="getDrawingAsPic" />
+            <button text="Clear Drawing" tap="clearUserDrawing" />
      </StackLayout>
 </Page>
 ```
@@ -40,20 +40,30 @@ From your command prompt/termial go to your app's root folder and execute:
 var frame = require("ui/frame");
 
 // To get the drawing...
-function getDrawing(args) {
+function getDrawingAsPic(args) {
     // get reference to the drawing pad
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    // then access the 'drawing' property (Bitmap on Android) of the signaturepad
-    var drawingImage = pad.drawing;
+    // then get the drawing (Bitmap on Android) of the drawingpad
+    var drawingImage;
+    pad.getDrawing().then(function(data) {
+        console.log(data);
+        drawingImage = data;
+    }, function(err) {
+        console.log(err);
+    })
 }
-exports.getDrawing = getDrawing;
+exports.getDrawingAsPic = getDrawingAsPic;
 
 // If you want to clear the signature/drawing...
-function clearDrawing(args) {
+function clearUserDrawing(args) {
     var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    pad.clearDrawing();
+    pad.clearDrawing().then(function() {
+        console.log('DrawingPad cleared.');
+    }, function(err) {
+        console.log(err);
+    });
 }
-exports.clearDrawing = clearDrawing;
+exports.clearUserDrawing = clearUserDrawing;
 ```
 
 ## Attributes
@@ -65,8 +75,13 @@ Attribute to specify the pen (stroke) color to use.
 
 Attribute to specify the pen (stroke) width to use.
 
+## Methods 
+**getDrawing()** - Promise *(returns image if successful)*
+
+**clearDrawing()** - clears the drawing from the DrawingPad view.
+
 ## Sample Screenshots
 
 Sample 1 |  Sample 2 
 -------- | ---------
-![Sample1](sample1.png) | ![Sample2](sample2.png)
+![Sample1](screens/sample1.png) | ![Sample2](screens/sample2.png)

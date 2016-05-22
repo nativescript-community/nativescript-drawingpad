@@ -1,25 +1,18 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd"
-      xmlns:SignaturePad="nativescript-signaturepad" loaded="pageLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
     <Page.actionBar>
-    <ActionBar title="NativeScript-SignaturePad" color="#fff" backgroundColor="#03A9F4" />
-  </Page.actionBar>
+        <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#03A9F4" />
+    </Page.actionBar>
     <ScrollView>
-        <StackLayout> 
-
-            <label text="Example XML markup:" textWrap="true" class="title" />
-            <label backgroundColor="#333" color="#00ff00" 
-                   text="&lt;SignaturePad:SignaturePad id='drawingPad' height='180' penColor='#3489db' penWidth='5' /&gt;" 
-                   class="message" textWrap="true" />
-
-            <SignaturePad:SignaturePad
-                height="200"
-                id="drawingPad"     
-                penColor="#ff4081" 
-                penWidth="3" />   
+        <StackLayout>
+        
+            <DrawingPad:DrawingPad backgroundColor="black" 
+            margin="10" height="300" id="drawingPad" 
+            penColor="#ff4081" penWidth="3" />
             
-            <Button text="Get Drawing" tap="getDrawing" />
-            <button text="Clear Drawing" tap="clearDrawing" />
-            
+            <StackLayout orientation="horizontal">
+                <Button text="Get Drawing" color="green" tap="getMyDrawing" />
+                <button text="Clear Drawing" color="red" tap="clearMyDrawing" />
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </Page>

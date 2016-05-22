@@ -1,8 +1,8 @@
 {
-  "name": "nativescript-signaturepad",
+  "name": "nativescript-drawingpad",
   "version": "0.1.3",
-  "main": "signaturepad.js",
-  "description": "A NativeScript plugin to provide a way to capture signatures (and any other drawing) from the device screen.",
+  "main": "drawingpad.js",
+  "description": "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
   "nativescript": {
     "platforms": {
       "android": "1.5.0",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bradmartin/nativescript-signaturepad.git"
+    "url": "git+https://github.com/bradmartin/nativescript-drawingpad.git"
   },
   "keywords": [
     "NativeScript",
@@ -30,7 +30,11 @@
   },
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/bradmartin/nativescript-signaturepad/issues"
+    "url": "https://github.com/bradmartin/nativescript-drawingpad/issues"
   },
-  "homepage": "https://github.com/bradmartin/nativescript-signaturepad"
+  "homepage": "https://github.com/bradmartin/nativescript-drawingpad",
+  "devDependencies": {
+    "nativescript-dev-typescript": "^0.3.2",
+    "typescript": "^1.8.10"
+  }
 }
