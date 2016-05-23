@@ -30,11 +30,42 @@ export class DrawingPad extends common.DrawingPad {
 
     }
 
-    public getDrawing():Promise<any> {
+    
+    public getDrawing(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            try {
+                if (!this._android.isEmpty()) {
+                    let data = this._android.getSignatureBitmap();
+                    resolve(data);
+                } else {
+                    reject("DrawingPad is empty.");
+                }
+            } catch (err) {
+                reject(err);
+            }
+        })
+    }
+
+    public getTransparentDrawing(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
                 if (!this._android.isEmpty()) {
                     let data = this._android.getTransparentSignatureBitmap();
+                    resolve(data);
+                } else {
+                    reject("DrawingPad is empty.");
+                }
+            } catch (err) {
+                reject(err);
+            }
+        })
+    }
+
+    public getDrawingSvg(): Promise<any> {
+        return new Promise((resolve, reject) => {
+            try {
+                if (!this._android.isEmpty()) {
+                    let data = this._android.getSignatureSvg();
                     resolve(data);
                 } else {
                     reject("DrawingPad is empty.");

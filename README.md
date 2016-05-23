@@ -77,7 +77,14 @@ Attribute to specify the pen (stroke) color to use.
 
 Attribute to specify the pen (stroke) width to use.
 
-## Methods 
+## Methods
+
 **getDrawing()** - Promise *(returns image if successful)*
 
 **clearDrawing()** - clears the drawing from the DrawingPad view.
+
+#### *Android Only*
+
+- **getTransparentDrawing** - Promise (returns a bitmap with a transparent background)
+- **getDrawingSvg()** - Promise (returns a Scalable Vector Graphics document)
+
