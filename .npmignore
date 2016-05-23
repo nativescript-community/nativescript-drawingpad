@@ -1,8 +1,7 @@
 ﻿# generated files
 .vs
 .vs/
-nativescript-videoplayer.sln
-.sln
+.vscode/
 *.sln
 demo/
 screens/
