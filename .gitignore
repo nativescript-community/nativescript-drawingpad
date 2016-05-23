@@ -1,10 +1,13 @@
 .vs
 .vs/
+.vscode/
 *.js
 *.map
 demo/platforms
 demo/node_modules
 demo/hooks
 demo/tsconfig.json
+hooks/
+node_modules/
 .DS_Store
 *.gitattributes

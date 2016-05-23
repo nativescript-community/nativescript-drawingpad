@@ -5,7 +5,11 @@
 NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device.
 You can use this component to capture really anything you want that can be drawn on the screen. Go crazy with it!!!
 
-## WARNING - iOS is in development and should be available soon. ANDROID ONLY for now.
+## Samples
+
+Android |  iOS 
+-------- | ---------
+![Sample1](screens/androidDrawing.gif) | ![Sample2](screens/iosDrawing.gif)
 
 #### Native Libraries: 
 Android | iOS
@@ -75,9 +79,3 @@ Attribute to specify the pen (stroke) width to use.
 **getDrawing()** - Promise *(returns image if successful)*
 
 **clearDrawing()** - clears the drawing from the DrawingPad view.
-
-## Sample Screenshots
-
-Sample 1 |  Sample 2 
--------- | ---------
-![Sample1](screens/sample1.png) | ![Sample2](screens/sample2.png)

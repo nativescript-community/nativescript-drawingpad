@@ -15,7 +15,7 @@ function pageLoaded(args) {
         window.setStatusBarColor(new color.Color("#0288D1").android);
     }
 }
-exports.pageLoaded = pageLoaded;
+exports.pageLoaded = pageLoaded; 
 
 
 

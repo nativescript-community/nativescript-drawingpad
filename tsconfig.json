@@ -12,5 +12,9 @@
         "drawingpad.ios.ts",
         "drawingpad-common.ts"
     ],
-    "compileOnSave": false
+    "compileOnSave": false,
+    "exclude": [
+        "node_modules",
+        "platforms"
+    ]
 }

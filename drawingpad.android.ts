@@ -1,5 +1,4 @@
 ﻿import common = require("./drawingpad-common");
-import definition = require("nativescript-drawingpad");
 import { Color } from "color";
 
 global.moduleMerge(common, exports);
@@ -9,11 +8,11 @@ declare var com: any;
 export class DrawingPad extends common.DrawingPad {
     private _android: com.github.gcacace.signaturepad.views.SignaturePad;
 
-    get android(): com.github.gcacace.signaturepad.views.SignaturePad {
+    get android() {
         return this._android;
     }
 
-    get _nativeView(): com.github.gcacace.signaturepad.views.SignaturePad {
+    get _nativeView() {
         return this._android;
     }
 

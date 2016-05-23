@@ -7,13 +7,13 @@ global.moduleMerge(common, exports);
 declare var SignatureView: any, CGRectMake: any;
 
 export class DrawingPad extends common.DrawingPad {
-    private _ios: SignatureView;
+    private _ios: any = SignatureView;
 
-    get ios(): SignatureView {
+    get ios(): any {
         return this._ios;
     }
 
-    get _nativeView(): SignatureView {
+    get _nativeView(): any {
         return this._ios;
     }
 
@@ -27,33 +27,32 @@ export class DrawingPad extends common.DrawingPad {
         super.onLoaded();
 
         try {
-            this._ios = SignatureView.alloc().initWithFrame(CGRectMake(0, 0, 100, 100));
-
             if (this.penColor) {
-                this._ios.foregroundLineColor = new Color(this.penColor).ios;
-                this._ios.backgroundLineColor = new Color(this.penColor).ios;
+                let value = this.penColor;
+                this._ios.setLineColor(new Color(value).ios);
             }
 
             if (this.penWidth) {
-                this._ios.foregroundLineWidth = this.penWidth;
-                this._ios.backgroundLineWidth = this.penWidth;
+                let value = this.penWidth;
+                this._ios.setLineWidth(value);
             }
 
         } catch (ex) {
             console.log(ex);
-        }
-
-        // if (isNaN(this.width) || isNaN(this.height)) {
-        //     this.requestLayout();
-        // }
+        }      
 
     }
 
-    public getDrawing():Promise<any> {
+    public getDrawing(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                let data = this._ios.signatureData();
-                resolve(data);
+                let isSigned = this._ios.isSigned();
+                if (isSigned === true) {
+                    let data = this._ios.signatureImage();
+                    resolve(data);
+                } else {
+                    reject("DrawingPad is empty.");
+                }
             } catch (err) {
                 reject(err);
             }
@@ -62,7 +61,7 @@ export class DrawingPad extends common.DrawingPad {
 
     public clearDrawing(): any {
         try {
-            this._ios.UILongPressGestureRecognizer();
+            this._ios.clear();
         } catch (err) {
             console.log("Error clearing the DrawingPad: " + err);
         }
