@@ -85,6 +85,6 @@ Attribute to specify the pen (stroke) width to use.
 
 #### *Android Only*
 
-- **getTransparentDrawing** - Promise (returns a bitmap with a transparent background)
+- **getTransparentDrawing()** - Promise (returns a bitmap with a transparent background)
 - **getDrawingSvg()** - Promise (returns a Scalable Vector Graphics document)
 
