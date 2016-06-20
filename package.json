@@ -28,6 +28,13 @@
     "email": "bradmartinwaynemartin@gmail.com",
     "url": "https://github.com/bradmartin"
   },
+  "contributors": [
+    {
+      "name": "Leo Caseiro",
+      "email": "leobok@gmail.com",
+      "url": "https://github.com/leocaseiro"
+    },
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/bradmartin/nativescript-drawingpad/issues"
