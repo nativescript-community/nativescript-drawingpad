@@ -21,51 +21,47 @@ Android | iOS
 ## Installation
 From your command prompt/termial go to your app's root folder and execute:
 
-`npm install nativescript-drawingpad`
+`tns plugin add nativescript-drawingpad`
 
 ## Usage
 #### XML:
 ```XML
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
-    <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#03A9F4" />
+    <ActionBar title="NativeScript-DrawingPad" />
     <ScrollView>
         <StackLayout>
         
             <DrawingPad:DrawingPad 
             height="400" 
             id="drawingPad" 
-            penColor="#ff4081" penWidth="3" />
+            penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
             
         </StackLayout>
     </ScrollView>
 </Page>
 ```
 
-#### JS:
-```JS
-var frame = require("ui/frame");
+### TS:
+```TS
+import { topmost } from 'ui/frame';
+import { DrawingPad } from 'nativescript-drawingpad';
 
 // To get the drawing...
-function getDrawingAsPic(args) {
-    // get reference to the drawing pad
-    var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    // then get the drawing (Bitmap on Android) of the drawingpad
-    var drawingImage;
-    pad.getDrawing().then(function(data) {
-        console.log(data);
-        drawingImage = data;
-    }, function(err) {
-        console.log(err);
-    })
-}
-exports.getDrawingAsPic = getDrawingAsPic;
+
+  public getMyDrawing() {      
+      let drawingPad = topmost().getViewById('myDrawingPad');      
+      drawingPad.getDrawing().then((res) => {        
+          console.log(res);    
+       });  
+    }
+
 
 // If you want to clear the signature/drawing...
-function clearUserDrawing(args) {
-    var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    pad.clearDrawing();
+public clearMyDrawing() {
+    let drawingPad = topmost().getViewById('myDrawingPad');      
+    drawingPad.clearDrawing();
 }
-exports.clearUserDrawing = clearUserDrawing;
+
 ```
 
 ## Angular:
