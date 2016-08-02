@@ -1,19 +1,20 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
-    <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#03A9F4" />
+<Page 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
+    <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#3489db" />
     <ScrollView>
         <StackLayout>
-        
-            <DrawingPad:DrawingPad
-            backgroundColor="#222"
-            margin="10" height="400" 
-            id="drawingPad" 
-            penColor="#ff4081" penWidth="3" />
-            
+            <DrawingPad:DrawingPad backgroundColor="#222" id="drawingPad" margin="10" height="280" penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
             <StackLayout orientation="horizontal">
-                <Button text="Get Drawing" tap="getMyDrawing" />
-                <Button text="Clear Drawing" tap="clearMyDrawing" />
+                <Button text="Get Drawing" tap="{{ getMyDrawing }}" />
+                <Button text="Clear" tap="{{ clearMyDrawing }}" />
+                <Button text="Pick Color" tap="{{ openColorPicker }}" />                
             </StackLayout>
-            
+            <GridLayout padding="10" rows="*, *" columns="*, *">
+                <Label text="Pen Width:" class="message" textWrap="true" row="0" col="0" />
+                <Label text="{{ penWidth }}" class="message" textWrap="true" row="0" col="1" />
+            </GridLayout>
+            <Slider margin="10" backgroundColor="#ff4801" id="widthSlider" value="{{ penWidth }}" maxValue="20" minValue="1" />
         </StackLayout>
     </ScrollView>
 </Page>

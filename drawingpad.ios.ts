@@ -1,6 +1,23 @@
-﻿import common = require("./drawingpad-common");
-import definition = require("nativescript-drawingpad");
+﻿import { PropertyChangeData } from "ui/core/dependency-observable";
+import { PropertyMetadata } from "ui/core/proxy";
 import { Color } from "color";
+import common = require("./drawingpad-common");
+
+function onPenColorPropertyChanged(data: PropertyChangeData) {
+    var dPad = <DrawingPad>data.object;
+    dPad.ios.setLineColor(new Color(data.newValue).ios);
+}
+// register the setNativeValue callbacks
+(<PropertyMetadata>common.DrawingPad.penColorProperty.metadata).onSetNativeValue = onPenColorPropertyChanged;
+
+
+function onPenWidthPropertyChanged(data: PropertyChangeData) {
+    var dPad = <DrawingPad>data.object;
+    dPad.ios.setLineWidth(data.newValue);
+}
+// register the setNativeValue callbacks
+(<PropertyMetadata>common.DrawingPad.penWidthProperty.metadata).onSetNativeValue = onPenWidthPropertyChanged;
+
 
 global.moduleMerge(common, exports);
 
@@ -39,7 +56,7 @@ export class DrawingPad extends common.DrawingPad {
 
         } catch (ex) {
             console.log(ex);
-        }      
+        }
 
     }
 

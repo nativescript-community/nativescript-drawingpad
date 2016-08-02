@@ -1,36 +1,17 @@
-var observable = require("data/observable").Observable;
-var app = require("application");
-var platformModule = require("platform");
-var color = require("color");
-var frame = require("ui/frame");
-
-var data = new observable({});
-
+"use strict";
+var platform_1 = require("platform");
+var color_1 = require("color");
+var application_1 = require("application");
+var main_view_model_1 = require('./main-view-model');
+// Event handler for Page "loaded" event attached in main-page.xml
 function pageLoaded(args) {
-    var page = args.object; 
-    page.bindingContext = data;
-    // Change statusbar color on Lollipop
-    if (app.android && platformModule.device.sdkVersion >= "21") {
-        var window = app.android.startActivity.getWindow(); 
-        window.setStatusBarColor(new color.Color("#0288D1").android);
+    // Get the event sender
+    var page = args.object;
+    page.bindingContext = new main_view_model_1.HelloWorldModel(page);
+    if (platform_1.isAndroid && platform_1.device.sdkVersion >= "21") {
+        var window_1 = application_1.android.startActivity.getWindow();
+        window_1.setStatusBarColor(new color_1.Color("#336699").android);
     }
 }
-exports.pageLoaded = pageLoaded; 
-
-
-
-function getMyDrawing(args) {
-    var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    pad.getDrawing().then(function (data) {
-        console.log(data);
-    }, function (err) {
-        console.log(err);
-    });
-}
-exports.getMyDrawing = getMyDrawing;
-
-function clearMyDrawing(args) {
-    var pad = frame.topmost().currentPage.getViewById("drawingPad");
-    pad.clearDrawing();
-}
-exports.clearMyDrawing = clearMyDrawing;
+exports.pageLoaded = pageLoaded;
+//# sourceMappingURL=main-page.js.map

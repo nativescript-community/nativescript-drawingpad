@@ -1,5 +1,28 @@
-﻿import common = require("./drawingpad-common");
+﻿import { PropertyChangeData } from "ui/core/dependency-observable";
+import { PropertyMetadata } from "ui/core/proxy";
 import { Color } from "color";
+import common = require("./drawingpad-common");
+
+function onPenWidthPropertyChanged(data: PropertyChangeData) {
+    var dPad = <DrawingPad>data.object;
+    if (!dPad.android) {
+        return;
+    }
+    dPad.android.setMinWidth(data.newValue);
+}
+
+function onPenColorPropertyChanged(data: PropertyChangeData) {
+    var dPad = <DrawingPad>data.object;
+    if (!dPad.android) {
+        return;
+    }
+    dPad.android.setPenColor(new Color(data.newValue).android);
+}
+
+// register the setNativeValue callbacks
+(<PropertyMetadata>common.DrawingPad.penWidthProperty.metadata).onSetNativeValue = onPenWidthPropertyChanged;
+(<PropertyMetadata>common.DrawingPad.penColorProperty.metadata).onSetNativeValue = onPenColorPropertyChanged;
+
 
 global.moduleMerge(common, exports);
 

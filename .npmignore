@@ -6,3 +6,7 @@
 demo/
 screens/
 *.gitattributes
+*.ts
+!index.d.ts
+!drawingpad.d.ts
+tsconfig.json

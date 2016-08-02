@@ -1,5 +1,4 @@
 ﻿/// <reference path="./drawingpad.d.ts" />
-import definition = require("nativescript-drawingpad");
 import { View } from "ui/core/view";
 import { PropertyMetadata } from "ui/core/proxy";
 import { Property, PropertyMetadataSettings } from "ui/core/dependency-observable";
@@ -16,7 +15,7 @@ var penWidthProperty = new Property(
     new PropertyMetadata(undefined, PropertyMetadataSettings.None)
 );
 
-export class DrawingPad extends View implements definition.DrawingPad {
+export class DrawingPad extends View {
 
     public static penColorProperty = penColorProperty;
     public static penWidthProperty = penWidthProperty;
@@ -39,13 +38,7 @@ export class DrawingPad extends View implements definition.DrawingPad {
         this._setValue(DrawingPad.penWidthProperty, value);
     }
 
-    public clearDrawing() {
-
-    }
-
-    public getDrawing() {
-
-    }
-
+    public clearDrawing(): void { }
+    public getDrawing(): any { }
 
 }

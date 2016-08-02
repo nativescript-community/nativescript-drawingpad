@@ -4,10 +4,8 @@
     margin: 20;
 }
 
-button {
-    font-size: 18;
+Button {
     horizontal-align: center;
-    margin: 10;
 }
 
 .red {

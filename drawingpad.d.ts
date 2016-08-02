@@ -34,14 +34,24 @@ declare module "nativescript-drawingpad" {
         penWidth: number;
 
         /**
-         * Use this to get the drawingpad
+         * Gets the drawing as an image.
          */
-        getDrawing: Function;
+        getDrawing(): Promise<any>        
 
         /*
-        * Use this to clear/erase the pad
+        * Clears the drawing pad.
         */
-        clearDrawing: Function;
+        clearDrawing(): void;
+
+        /**
+         * Returns a bitmap with a transparent background. ** Valid only when running on Android OS. **
+         */
+        getTransparentDrawing(): Promise<any>
+
+        /**
+         * Returns a Scalable Vector Graphics document. ** Valid only when running on Android OS. **
+         */
+        getDrawingSvg(): Promise<any>
     }
 
 }
