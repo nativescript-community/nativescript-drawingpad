@@ -7,6 +7,5 @@ demo/
 screens/
 *.gitattributes
 *.ts
-!index.d.ts
-!drawingpad.d.ts
+!*.d.ts
 tsconfig.json

@@ -1,5 +1,4 @@
-﻿/// <reference path="./drawingpad.d.ts" />
-import { View } from "ui/core/view";
+﻿import { View } from "ui/core/view";
 import { PropertyMetadata } from "ui/core/proxy";
 import { Property, PropertyMetadataSettings } from "ui/core/dependency-observable";
 

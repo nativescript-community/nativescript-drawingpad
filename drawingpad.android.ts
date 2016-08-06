@@ -27,9 +27,10 @@ function onPenColorPropertyChanged(data: PropertyChangeData) {
 global.moduleMerge(common, exports);
 
 declare var com: any;
+let SignaturePad: any = com.github.gcacace.signaturepad.views.SignaturePad;
 
 export class DrawingPad extends common.DrawingPad {
-    private _android: com.github.gcacace.signaturepad.views.SignaturePad;
+    private _android: any;
 
     get android() {
         return this._android;
@@ -41,7 +42,7 @@ export class DrawingPad extends common.DrawingPad {
 
     public _createUI() {
 
-        this._android = new com.github.gcacace.signaturepad.views.SignaturePad(this._context, null);
+        this._android = new SignaturePad(this._context, null);
 
         if (this.penColor) {
             this._android.setPenColor(new Color(this.penColor).android);

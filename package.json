@@ -2,11 +2,12 @@
   "name": "nativescript-drawingpad",
   "version": "1.1.0",
   "main": "drawingpad.js",
+  "typings": "index.d.ts",
   "description": "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
   "nativescript": {
     "platforms": {
-      "android": "1.5.0",
-      "ios": "1.5.2"
+      "android": "2.1.1",
+      "ios": "2.1.1"
     }
   },
   "repository": {
@@ -33,15 +34,27 @@
       "name": "Leo Caseiro",
       "email": "leobok@gmail.com",
       "url": "https://github.com/leocaseiro"
+    },
+    {
+      "name": "Nathan Walker",
+      "email": "walkerrunpdx@gmail.com",
+      "url": "https://github.com/NathanWalker"
     }
   ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf demo/node_modules demo/lib demo/platforms",
+    "demo.ios": "npm run preparedemo; cd demo; tns emulate ios",
+    "demo.android": "npm run preparedemo; cd demo; tns run android",
+    "preparedemo": "npm run build; cd demo; tns plugin remove nativescript-drawingpad; tns plugin add ..; tns install",
+    "setup": "npm i; cd demo; npm install; cd ..; npm run build; cd demo; tns plugin add ..; cd .."
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/bradmartin/nativescript-drawingpad/issues"
   },
   "homepage": "https://github.com/bradmartin/nativescript-drawingpad",
   "devDependencies": {
-    "nativescript-dev-typescript": "^0.3.2",
     "typescript": "^1.8.10"
   }
 }

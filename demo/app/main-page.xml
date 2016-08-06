@@ -12,7 +12,7 @@
             </StackLayout>
             <GridLayout padding="10" rows="*, *" columns="*, *">
                 <Label text="Pen Width:" class="message" textWrap="true" row="0" col="0" />
-                <Label text="{{ penWidth }}" class="message" textWrap="true" row="0" col="1" />
+                <Label text="{{ penWidth }}" class="message" textWrap="true" row="0" col="1" />              
             </GridLayout>
             <Slider margin="10" backgroundColor="#ff4801" id="widthSlider" value="{{ penWidth }}" maxValue="20" minValue="1" />
         </StackLayout>
