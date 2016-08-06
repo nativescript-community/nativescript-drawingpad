@@ -9,21 +9,15 @@ import { DrawingPad } from 'nativescript-drawingpad';
 export class HelloWorldModel extends Observable {
   private _myDrawingPad: DrawingPad;
   private _widthSlider: Slider;
+  private _penInput: any;
   private _colorPicker: ColorPicker;
 
-  public penWidth: string;
-  public penColor: string;
+  public penWidth: number = 5;
+  public penColor: string = '#3489db';
 
   constructor(mainPage: Page) {
     super();
     this._myDrawingPad = <DrawingPad>mainPage.getViewById('drawingPad');
-    this._widthSlider = <Slider>mainPage.getViewById('widthSlider');
-    this._widthSlider.on('propertyChange', (args: PropertyChangeData) => {
-      this.set('penWidth', args.value);
-    });
-
-    this.penWidth = '5';
-    this.penColor = '#3489db';
     this._colorPicker = new ColorPicker();
   }
 
@@ -42,11 +36,10 @@ export class HelloWorldModel extends Observable {
     this.set('penColor', '#ff4801');
   }
 
-
   public openColorPicker() {
-    this._colorPicker.show('#3489db', 'RGB').then((result) => {
+    this._colorPicker.show('#3489db', 'HEX').then((result) => {
       console.log('color int: ' + result);
-      this.set('penColor', new Color(result).android);
+      this.set('penColor', result);
     }).catch((err) => {
       console.log(err);
     })

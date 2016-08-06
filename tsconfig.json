@@ -4,17 +4,16 @@
         "module": "commonjs",
         "removeComments": true,
         "experimentalDecorators": true,
-        "sourceMap": true
+        "declaration": true,
+        "noEmitOnError": false,
+        "noEmitHelpers": true,
+        "noImplicitUseStrict": true
     },
     "files": [
         "demo/node_modules/tns-core-modules/tns-core-modules.d.ts",
+        "drawingpad-common.ts",
         "drawingpad.android.ts",
-        "drawingpad.ios.ts",
-        "drawingpad-common.ts"
+        "drawingpad.ios.ts"
     ],
-    "compileOnSave": false,
-    "exclude": [
-        "node_modules",
-        "platforms"
-    ]
+    "compileOnSave": false
 }
