@@ -1,7 +1,7 @@
 {
   "name": "nativescript-drawingpad",
-  "version": "1.1.1",
-  "main": "drawingpad.js",
+  "version": "1.1.2",
+  "main": "drawingpad",
   "typings": "index.d.ts",
   "description": "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
   "nativescript": {
