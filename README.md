@@ -23,6 +23,9 @@ From your command prompt/termial go to your app's root folder and execute:
 
 `tns plugin add nativescript-drawingpad`
 
+## Video Tutorial
+[Egghead lesson - https://egghead.io/lessons/javascript-capture-drawings-and-signatures-in-a-nativescript-app](https://egghead.io/lessons/javascript-capture-drawings-and-signatures-in-a-nativescript-app)
+
 ## Usage
 #### XML:
 ```XML
