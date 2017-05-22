@@ -21,7 +21,11 @@ Android | iOS
 ## Installation
 From your command prompt/termial go to your app's root folder and execute:
 
+#### NativeScript 3.0+
 `tns plugin add nativescript-drawingpad`
+
+#### NativeScript < 3
+`tns plugin add nativescript-drawingpad@1.1.2`
 
 ## Video Tutorial
 [Egghead lesson - https://egghead.io/lessons/javascript-capture-drawings-and-signatures-in-a-nativescript-app](https://egghead.io/lessons/javascript-capture-drawings-and-signatures-in-a-nativescript-app)
