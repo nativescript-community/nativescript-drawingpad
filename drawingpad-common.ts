@@ -1,43 +1,28 @@
-﻿import { View } from "ui/core/view";
-import { PropertyMetadata } from "ui/core/proxy";
-import { Property, PropertyMetadataSettings } from "ui/core/dependency-observable";
+﻿import { View, Property } from "ui/core/view";
+import { Color } from "color";
 
-var penColorProperty = new Property(
-    "penColor",
-    "DrawingPad",
-    new PropertyMetadata(undefined, PropertyMetadataSettings.None)
-);
+export * from "ui/core/view";
 
-var penWidthProperty = new Property(
-    "penWidth",
-    "DrawingPad",
-    new PropertyMetadata(undefined, PropertyMetadataSettings.None)
-);
+export abstract class DrawingPadBase extends View {
 
-export class DrawingPad extends View {
+    public penColor: Color;
+    public penWidth: number;
 
-    public static penColorProperty = penColorProperty;
-    public static penWidthProperty = penWidthProperty;
-
-    constructor() {
-        super();
-    }
-
-    get penColor(): string {
-        return this._getValue(DrawingPad.penColorProperty);
-    }
-    set penColor(value: string) {
-        this._setValue(DrawingPad.penColorProperty, value);
-    }
-
-    get penWidth(): number {
-        return this._getValue(DrawingPad.penWidthProperty);
-    }
-    set penWidth(value: number) {
-        this._setValue(DrawingPad.penWidthProperty, value);
-    }
-
-    public clearDrawing(): void { }
-    public getDrawing(): any { }
+    public abstract clearDrawing(): void;
+    public abstract getDrawing(): Promise<any>;
 
 }
+
+export const penColorProperty = new Property<DrawingPadBase, Color>({
+    name: "penColor",
+    valueConverter: (v) => new Color(v),
+    equalityComparer: Color.equals
+});
+penColorProperty.register(DrawingPadBase);
+
+export const penWidthProperty = new Property<DrawingPadBase, number>({
+    name: "penWidth",
+    defaultValue: 1,
+    valueConverter: (v) => +v
+});
+penWidthProperty.register(DrawingPadBase);
