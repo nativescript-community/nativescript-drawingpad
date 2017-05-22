@@ -19,6 +19,7 @@
         }        
     },
     "files": [
+        "references.d.ts",
         "index.d.ts",
         "drawingpad-common.ts",
         "drawingpad.android.ts",
