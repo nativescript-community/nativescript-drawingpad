@@ -1,65 +1,51 @@
-﻿import { PropertyChangeData } from "ui/core/dependency-observable";
-import { PropertyMetadata } from "ui/core/proxy";
-import { Color } from "color";
-import common = require("./drawingpad-common");
-
-function onPenWidthPropertyChanged(data: PropertyChangeData) {
-    var dPad = <DrawingPad>data.object;
-    if (!dPad.android) {
-        return;
-    }
-    dPad.android.setMinWidth(data.newValue);
-}
-
-function onPenColorPropertyChanged(data: PropertyChangeData) {
-    var dPad = <DrawingPad>data.object;
-    if (!dPad.android) {
-        return;
-    }
-    dPad.android.setPenColor(new Color(data.newValue).android);
-}
-
-// register the setNativeValue callbacks
-(<PropertyMetadata>common.DrawingPad.penWidthProperty.metadata).onSetNativeValue = onPenWidthPropertyChanged;
-(<PropertyMetadata>common.DrawingPad.penColorProperty.metadata).onSetNativeValue = onPenColorPropertyChanged;
-
-
-global.moduleMerge(common, exports);
+﻿import { Color } from "color";
+import { DrawingPadBase, penColorProperty, penWidthProperty } from "./drawingpad-common";
 
 declare var com: any;
-let SignaturePad: any = com.github.gcacace.signaturepad.views.SignaturePad;
+const SignaturePad: any = com.github.gcacace.signaturepad.views.SignaturePad;
 
-export class DrawingPad extends common.DrawingPad {
-    private _android: any;
+export * from "./drawingpad-common";
 
+export class DrawingPad extends DrawingPadBase {
     get android() {
-        return this._android;
+        return this.nativeView;
     }
 
-    get _nativeView() {
-        return this._android;
-    }
+    public createNativeView() {
 
-    public _createUI() {
-
-        this._android = new SignaturePad(this._context, null);
+        const signaturePad = new SignaturePad(this._context, null);
 
         if (this.penColor) {
-            this._android.setPenColor(new Color(this.penColor).android);
+            signaturePad.setPenColor(this.penColor.android);
         }
 
         if (this.penWidth) {
-            this._android.setMinWidth(this.penWidth);
+            signaturePad.setMinWidth(this.penWidth);
         }
 
+        return signaturePad;
     }
 
-    
+    [penWidthProperty.getDefault](): number {
+        return this.nativeView.minWidth;
+    }
+    [penWidthProperty.setNative](value: number) {
+        this.nativeView.setMinWidth(value);
+    }
+
+    [penColorProperty.getDefault](): number {
+        return this.nativeView.penColor;
+    }
+    [penColorProperty.setNative](value: Color | number) {
+        const color = value instanceof Color ? value.android : value;
+        this.nativeView.setPenColor(color);
+    }
+
     public getDrawing(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                if (!this._android.isEmpty()) {
-                    let data = this._android.getSignatureBitmap();
+                if (!this.nativeView.isEmpty()) {
+                    let data = this.nativeView.getSignatureBitmap();
                     resolve(data);
                 } else {
                     reject("DrawingPad is empty.");
@@ -73,8 +59,8 @@ export class DrawingPad extends common.DrawingPad {
     public getTransparentDrawing(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                if (!this._android.isEmpty()) {
-                    let data = this._android.getTransparentSignatureBitmap();
+                if (!this.nativeView.isEmpty()) {
+                    let data = this.nativeView.getTransparentSignatureBitmap();
                     resolve(data);
                 } else {
                     reject("DrawingPad is empty.");
@@ -88,8 +74,8 @@ export class DrawingPad extends common.DrawingPad {
     public getDrawingSvg(): Promise<any> {
         return new Promise((resolve, reject) => {
             try {
-                if (!this._android.isEmpty()) {
-                    let data = this._android.getSignatureSvg();
+                if (!this.nativeView.isEmpty()) {
+                    let data = this.nativeView.getSignatureSvg();
                     resolve(data);
                 } else {
                     reject("DrawingPad is empty.");
@@ -100,9 +86,9 @@ export class DrawingPad extends common.DrawingPad {
         })
     }
 
-    public clearDrawing(): any {
+    public clearDrawing(): void {
         try {
-            this._android.clear();
+            this.nativeView.clear();
         } catch (err) {
             console.log('Error in clearDrawing: ' + err);
         }

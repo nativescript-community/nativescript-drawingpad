@@ -7,10 +7,20 @@
         "declaration": true,
         "noEmitOnError": false,
         "noEmitHelpers": true,
-        "noImplicitUseStrict": true
+        "noImplicitUseStrict": true,
+        "lib": ["es6", "dom"],
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+            "./node_modules/tns-core-modules/*",
+            "./node_modules/*"
+            ]
+        }        
     },
     "files": [
-        "demo/node_modules/tns-core-modules/tns-core-modules.d.ts",
+        "references.d.ts",
+        "index.d.ts",
         "drawingpad-common.ts",
         "drawingpad.android.ts",
         "drawingpad.ios.ts"
