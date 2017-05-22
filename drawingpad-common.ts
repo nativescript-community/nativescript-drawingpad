@@ -1,15 +1,22 @@
 ﻿import { View, Property } from "ui/core/view";
 import { Color } from "color";
+import { DrawingPad as DrawingPadDefinition } from ".";
 
 export * from "ui/core/view";
 
-export abstract class DrawingPadBase extends View {
+export abstract class DrawingPadBase extends View implements DrawingPadDefinition {
 
     public penColor: Color;
     public penWidth: number;
 
     public abstract clearDrawing(): void;
     public abstract getDrawing(): Promise<any>;
+    public getTransparentDrawing(): Promise<any> {
+        return new Promise<any>((resolve, reject) => { resolve(); });
+    }
+    public getDrawingSvg(): Promise<any> {
+        return new Promise<any>((resolve, reject) => { resolve(); });
+    }
 
 }
 

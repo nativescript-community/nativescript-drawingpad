@@ -1,9 +1,18 @@
-import common = require("./drawingpad-common");
-export declare class DrawingPad extends common.DrawingPad {
+import { View } from "ui/core/view";
+import { Color } from "color";
+
+export class DrawingPad extends View {
     android: any;
     ios: any;
-    _nativeView: any;
 
+    /**
+     * Gets/sets the drawing color of the pen.
+     */    
+    penColor: Color;
+    /**
+     * Gets/sets the drawing width of the pen.
+     */    
+    penWidth: number;
     /**
      * Returns native image.
      */
@@ -22,5 +31,5 @@ export declare class DrawingPad extends common.DrawingPad {
     /**
      * Clears the drawing from the DrawingPad.
      */
-    clearDrawing(): any;
+    clearDrawing(): void;
 }
