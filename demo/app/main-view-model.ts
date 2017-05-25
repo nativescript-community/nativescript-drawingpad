@@ -27,6 +27,12 @@ export class HelloWorldModel extends Observable {
       console.log(res);
     });
   }
+  
+  public getMyDrawingSvg() {
+    this._myDrawingPad.getDrawingSvg().then((res) => {
+      console.log(res);
+    });
+  }
 
   public clearMyDrawing() {
     this._myDrawingPad.clearDrawing();

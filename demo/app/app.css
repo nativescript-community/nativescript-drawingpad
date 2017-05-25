@@ -6,6 +6,8 @@
 
 Button {
     horizontal-align: center;
+    font-size: 18;
+    margin-left: 5
 }
 
 .red {

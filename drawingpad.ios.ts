@@ -59,6 +59,22 @@ export class DrawingPad extends DrawingPadBase {
         })
     }
 
+    public getDrawingSvg(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            try {
+                let isSigned = this.nativeView.isSigned();
+                if (isSigned === true) {
+                    let data = this.nativeView.signatureSvg();
+                    resolve(data);
+                } else {
+                    reject("DrawingPad is empty.");
+                }
+            } catch (err) {
+                reject(err);
+            }
+        })
+    }
+
     public clearDrawing(): void {
         try {
             if (this.backgroundColor) {

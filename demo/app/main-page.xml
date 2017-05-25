@@ -6,7 +6,10 @@
         <StackLayout>
             <DrawingPad:DrawingPad backgroundColor="#222" id="drawingPad" margin="10" height="280" penColor="{{ penColor }}" penWidth="{{ penWidth }}" />
             <StackLayout orientation="horizontal">
-                <Button text="Get Drawing" tap="{{ getMyDrawing }}" />
+                <Button text="Get Image" tap="{{ getMyDrawing }}" />
+                <Button text="Get SVG" tap="{{ getMyDrawingSvg }}" />
+            </StackLayout>
+            <StackLayout orientation="horizontal">
                 <Button text="Clear" tap="{{ clearMyDrawing }}" />
                 <Button text="Pick Color" tap="{{ openColorPicker }}" />                
             </StackLayout>

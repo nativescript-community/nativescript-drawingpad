@@ -14,9 +14,7 @@ export abstract class DrawingPadBase extends View implements DrawingPadDefinitio
     public getTransparentDrawing(): Promise<any> {
         return new Promise<any>((resolve, reject) => { resolve(); });
     }
-    public getDrawingSvg(): Promise<any> {
-        return new Promise<any>((resolve, reject) => { resolve(); });
-    }
+    public abstract getDrawingSvg(): Promise<string>;
 
 }
 
