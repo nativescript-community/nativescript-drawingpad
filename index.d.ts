@@ -24,9 +24,9 @@ export class DrawingPad extends View {
     getTransparentDrawing(): Promise<any>;
 
     /**
-     * Returns a Scalable Vector Graphics document *** ANDROID ONLY ***
+     * Returns a Scalable Vector Graphics document
      */
-    getDrawingSvg(): Promise<any>;
+    getDrawingSvg(): Promise<string>;
 
     /**
      * Clears the drawing from the DrawingPad.

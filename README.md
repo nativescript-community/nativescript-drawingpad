@@ -124,7 +124,7 @@ export class DrawingPadExample {
 
 
 ## Attributes
-**penColor - (color string)** - *optional*
+**penColor - (Color)** - *optional*
 
 Attribute to specify the pen (stroke) color to use.
  
@@ -138,8 +138,9 @@ Attribute to specify the pen (stroke) width to use.
 
 **clearDrawing()** - clears the drawing from the DrawingPad view.
 
+**getDrawingSvg()** - Promise (returns a Scalable Vector Graphics document)
+
 #### *Android Only*
 
 - **getTransparentDrawing()** - Promise (returns a bitmap with a transparent background)
-- **getDrawingSvg()** - Promise (returns a Scalable Vector Graphics document)
 

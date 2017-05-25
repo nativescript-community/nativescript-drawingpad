@@ -71,7 +71,7 @@ export class DrawingPad extends DrawingPadBase {
         })
     }
 
-    public getDrawingSvg(): Promise<any> {
+    public getDrawingSvg(): Promise<string> {
         return new Promise((resolve, reject) => {
             try {
                 if (!this.nativeView.isEmpty()) {
