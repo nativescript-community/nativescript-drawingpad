@@ -58,7 +58,14 @@
     "demo.ios": "npm run preparedemo; cd demo; tns run ios",
     "demo.android": "npm run preparedemo; cd demo; tns run android",
     "preparedemo": "npm run build; cd demo; tns plugin remove nativescript-drawingpad; tns plugin add ..; tns install",
-    "setup": "npm i; cd demo; npm install; cd ..; npm run build; cd demo; tns plugin add ..; cd .."
+    "setup": "npm i; cd demo; npm install; cd ..; npm run build; cd demo; tns plugin add ..; cd ..",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "license": "Apache-2.0",
   "bugs": {
@@ -69,8 +76,11 @@
     "tns-core-modules": "^3.0.0"
   },
   "devDependencies": {
-    "typescript": "~2.2.0",
+    "husky": "^0.13.4",
+    "lint-staged": "^3.6.1",
+    "prettier": "^1.4.4",
     "tns-core-modules": "3.0.0",
-    "tns-platform-declarations": "3.0.1"
+    "tns-platform-declarations": "3.0.1",
+    "typescript": "~2.2.0"
   }
 }

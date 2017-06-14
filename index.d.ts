@@ -2,34 +2,36 @@ import { View } from "ui/core/view";
 import { Color } from "color";
 
 export class DrawingPad extends View {
-    android: any;
-    ios: any;
+  android: any;
+  ios: any;
 
-    /**
+  /**
      * Gets/sets the drawing color of the pen.
-     */    
-    penColor: Color;
-    /**
+     */
+
+  penColor: Color;
+  /**
      * Gets/sets the drawing width of the pen.
-     */    
-    penWidth: number;
-    /**
+     */
+
+  penWidth: number;
+  /**
      * Returns native image.
      */
-    getDrawing(): Promise<any>;
+  getDrawing(): Promise<any>;
 
-    /**
+  /**
      * Returns a bitmap with a transparent background *** ANDROID ONLY ***
      */
-    getTransparentDrawing(): Promise<any>;
+  getTransparentDrawing(): Promise<any>;
 
-    /**
+  /**
      * Returns a Scalable Vector Graphics document
      */
-    getDrawingSvg(): Promise<string>;
+  getDrawingSvg(): Promise<string>;
 
-    /**
+  /**
      * Clears the drawing from the DrawingPad.
      */
-    clearDrawing(): void;
+  clearDrawing(): void;
 }
