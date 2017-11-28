@@ -46,6 +46,7 @@ export class DrawingPad extends DrawingPadBase {
     if (this.height) {
       this.nativeView.frame.size.height = this.height;
     }
+    super.onLoaded();
   }
 
   public getDrawing(): Promise<any> {
