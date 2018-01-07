@@ -1,5 +1,9 @@
 [![npm](https://img.shields.io/npm/v/nativescript-drawingpad.svg)](https://www.npmjs.com/package/nativescript-drawingpad)
 [![npm](https://img.shields.io/npm/dt/nativescript-drawingpad.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-drawingpad)
+[![GitHub forks](https://img.shields.io/github/forks/bradmartin/nativescript-drawingpad.svg)](https://github.com/bradmartin/nativescript-drawingpad/network)
+[![GitHub stars](https://img.shields.io/github/stars/bradmartin/nativescript-drawingpad.svg)](https://github.com/bradmartin/nativescript-drawingpad/stargazers)
+[![PayPal Donate](https://img.shields.io/badge/Donate-PayPal-ff4081.svg)](https://www.paypal.me/bradwayne88)
+
 
 # NativeScript-DrawingPad :pencil:
 NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device.
