@@ -1,5 +1,5 @@
-import { View, Property } from "ui/core/view";
-import { Color } from "color";
+import { View, Property } from "tns-core-modules/ui/core/view";
+import { Color } from "tns-core-modules/color";
 import { DrawingPad as DrawingPadDefinition } from ".";
 
 export * from "ui/core/view";
