@@ -1,0 +1,8 @@
+//default elements
+android {
+    
+}
+
+dependencies {
+     compile "com.github.gcacace:signature-pad:1.2.1"
+}

@@ -4,7 +4,7 @@
         "module": "commonjs",
         "removeComments": true,
         "experimentalDecorators": true,
-        "declaration": true,
+        "declaration": false,
         "noEmitOnError": false,
         "noEmitHelpers": true,
         "noImplicitUseStrict": true,

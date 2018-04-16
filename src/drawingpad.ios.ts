@@ -1,21 +1,15 @@
-import { Color } from "tns-core-modules/color";
-import {
-  DrawingPadBase,
-  penColorProperty,
-  penWidthProperty
-} from "./drawingpad-common";
+/// <reference path="./node_modules/tns-platform-declarations/ios.d.ts" />
+
+import { Color } from 'tns-core-modules/color';
+import { DrawingPadBase, penColorProperty, penWidthProperty } from './drawingpad-common';
 
 declare var SignatureView: any;
-
-export * from "./drawingpad-common";
 
 export class DrawingPad extends DrawingPadBase {
   constructor() {
     super();
     // console.log('--------- DrawingPad ---------');
-    this.nativeView = SignatureView.alloc().initWithFrame(
-      CGRectMake(0, 0, 100, 100)
-    );
+    this.nativeView = SignatureView.alloc().initWithFrame(CGRectMake(0, 0, 100, 100));
     this.nativeView.clipsToBounds = true;
   }
 
@@ -39,7 +33,6 @@ export class DrawingPad extends DrawingPadBase {
   }
 
   public onLoaded() {
-    // console.log(`onLoaded ${this.width}, ${this.height}`);
     if (this.width) {
       this.nativeView.frame.size.width = this.width;
     }
@@ -54,10 +47,10 @@ export class DrawingPad extends DrawingPadBase {
       try {
         let isSigned = this.nativeView.isSigned();
         if (isSigned === true) {
-          let data = this.nativeView.signatureImage();
+          const data = this.nativeView.signatureImage();
           resolve(data);
         } else {
-          reject("DrawingPad is empty.");
+          reject('DrawingPad is empty.');
         }
       } catch (err) {
         reject(err);
@@ -70,10 +63,10 @@ export class DrawingPad extends DrawingPadBase {
       try {
         let isSigned = this.nativeView.isSigned();
         if (isSigned === true) {
-          let data = this.nativeView.signatureSvg();
+          const data = this.nativeView.signatureSvg();
           resolve(data);
         } else {
-          reject("DrawingPad is empty.");
+          reject('DrawingPad is empty.');
         }
       } catch (err) {
         reject(err);
@@ -86,7 +79,7 @@ export class DrawingPad extends DrawingPadBase {
       if (this.backgroundColor) {
         let color = this.backgroundColor;
         if (color.constructor == Color) {
-          color = color.ios;
+          color = (color as any).ios;
         } else if (color.constructor == String) {
           color = new Color(<any>color).ios;
         }
@@ -95,7 +88,7 @@ export class DrawingPad extends DrawingPadBase {
         this.nativeView.clear();
       }
     } catch (err) {
-      console.log("Error clearing the DrawingPad: " + err);
+      console.log('Error clearing the DrawingPad: ' + err);
     }
   }
 }

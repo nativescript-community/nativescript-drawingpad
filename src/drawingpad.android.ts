@@ -1,14 +1,9 @@
-import { Color } from "tns-core-modules/color";
-import {
-  DrawingPadBase,
-  penColorProperty,
-  penWidthProperty
-} from "./drawingpad-common";
+/// <reference path="./node_modules/tns-platform-declarations/android.d.ts" />
+
+import { Color } from 'tns-core-modules/color';
+import { DrawingPadBase, penColorProperty, penWidthProperty } from './drawingpad-common';
 
 declare var com: any;
-const SignaturePad: any = com.github.gcacace.signaturepad.views.SignaturePad;
-
-export * from "./drawingpad-common";
 
 export class DrawingPad extends DrawingPadBase {
   get android() {
@@ -16,7 +11,7 @@ export class DrawingPad extends DrawingPadBase {
   }
 
   public createNativeView() {
-    const signaturePad = new SignaturePad(this._context, null);
+    const signaturePad = new com.github.gcacace.signaturepad.views.SignaturePad(this._context, null);
 
     if (this.penColor) {
       signaturePad.setPenColor(this.penColor.android);
@@ -48,10 +43,10 @@ export class DrawingPad extends DrawingPadBase {
     return new Promise((resolve, reject) => {
       try {
         if (!this.nativeView.isEmpty()) {
-          let data = this.nativeView.getSignatureBitmap();
+          const data = this.nativeView.getSignatureBitmap();
           resolve(data);
         } else {
-          reject("DrawingPad is empty.");
+          reject('DrawingPad is empty.');
         }
       } catch (err) {
         reject(err);
@@ -63,10 +58,10 @@ export class DrawingPad extends DrawingPadBase {
     return new Promise((resolve, reject) => {
       try {
         if (!this.nativeView.isEmpty()) {
-          let data = this.nativeView.getTransparentSignatureBitmap();
+          const data = this.nativeView.getTransparentSignatureBitmap();
           resolve(data);
         } else {
-          reject("DrawingPad is empty.");
+          reject('DrawingPad is empty.');
         }
       } catch (err) {
         reject(err);
@@ -78,18 +73,13 @@ export class DrawingPad extends DrawingPadBase {
     return new Promise((resolve, reject) => {
       try {
         if (!this.nativeView.isEmpty()) {
-          let data: string = this.nativeView.getSignatureSvg();
+          const data: string = this.nativeView.getSignatureSvg();
 
           // Append viewbox to the svg for correct scaling
           const svgHeaderRegEx = /<svg (.*) height="(\d+)" width="(\d+)"(.*)>/i;
-          resolve(
-            data.replace(
-              svgHeaderRegEx,
-              `<svg $1 viewBox="0, 0, $3, $2" height="$2" width="$3"$4>`
-            )
-          );
+          resolve(data.replace(svgHeaderRegEx, `<svg $1 viewBox="0, 0, $3, $2" height="$2" width="$3"$4>`));
         } else {
-          reject("DrawingPad is empty.");
+          reject('DrawingPad is empty.');
         }
       } catch (err) {
         reject(err);
@@ -101,7 +91,7 @@ export class DrawingPad extends DrawingPadBase {
     try {
       this.nativeView.clear();
     } catch (err) {
-      console.log("Error in clearDrawing: " + err);
+      console.log('Error in clearDrawing: ' + err);
     }
   }
 }
