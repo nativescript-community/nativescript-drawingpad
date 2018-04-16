@@ -3,7 +3,8 @@
   "version": "3.0.0",
   "main": "drawingpad",
   "typings": "index.d.ts",
-  "description": "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
+  "description":
+    "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
   "nativescript": {
     "platforms": {
       "android": "3.0.0",
@@ -20,16 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/bradmartin/nativescript-drawingpad.git"
   },
-  "keywords": [
-    "NativeScript",
-    "native",
-    "script",
-    "signature",
-    "drawing",
-    "drawing pad",
-    "bradmartin",
-    "Thorum"
-  ],
+  "keywords": ["NativeScript", "native", "script", "signature", "drawing", "drawing pad", "bradmartin", "nStudio"],
   "author": {
     "name": "Brad Martin",
     "email": "bradmartinwaynemartin@gmail.com",
@@ -53,19 +45,26 @@
     }
   ],
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf demo/node_modules demo/lib demo/platforms",
-    "demo.ios": "npm run preparedemo; cd demo; tns run ios",
-    "demo.android": "npm run preparedemo; cd demo; tns run android",
-    "preparedemo": "npm run build; cd demo; tns plugin remove nativescript-drawingpad; tns plugin add ..; tns install",
-    "setup": "npm i; cd demo; npm install; cd ..; npm run build; cd demo; tns plugin add ..; cd ..",
-    "precommit": "lint-staged"
+    "tsc": "tsc -skipLibCheck",
+    "build": "npm i && tsc",
+    "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && cd ../src && npm run plugin.link",
+    "test.android":
+      "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+    "plugin.link": "npm link && cd ../demo && npm link nativescript-cardview && cd ../src",
+    "plugin.tscwatch": "npm run tsc -- -w",
+    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
+    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
+    "demo.reset": "cd ../demo && rimraf platforms",
+    "plugin.prepare": "npm run tsc && cd ../demo && tns plugin remove nativescript-cardview && tns plugin add ../src",
+    "clean":
+      "cd ../demo && rimraf hooks node_modules platforms && cd ../src && rimraf node_modules && npm run plugin.link",
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+    "prepare": "node scripts/prepare.js"
   },
   "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.ts": ["prettier --write", "git add"]
   },
   "license": "Apache-2.0",
   "bugs": {
