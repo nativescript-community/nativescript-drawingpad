@@ -81,7 +81,7 @@
   },
   "homepage": "https://github.com/bradmartin/nativescript-drawingpad",
   "peerDependencies": {
-    "tns-core-modules": "^3.0.0"
+    "tns-core-modules": "^3.0.0 || >=4.0.0 || >=4.1.0"
   },
   "devDependencies": {
     "husky": "^0.13.4",
