@@ -1,6 +1,10 @@
-//default elements
+
 android {
-    
+  productFlavors {
+    "signaturepad" {
+      dimension "signaturepad"
+    }
+  }
 }
 
 dependencies {
