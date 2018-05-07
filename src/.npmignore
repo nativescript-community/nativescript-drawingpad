@@ -10,6 +10,20 @@ screens/
 !*.d.ts
 tsconfig.json
 
+demo/
+screens/
+app/
+.vscode/
+*.png
+*.log
+*.ts
+!index.d.ts
+tsconfig.json
+README.md
+scripts/
+typings/
+node_modules/
+
 *.map
 *.ts
 !*.d.ts

@@ -1,10 +1,6 @@
 
 android {
-  productFlavors {
-    "signaturepad" {
-      dimension "signaturepad"
-    }
-  }
+  
 }
 
 dependencies {
