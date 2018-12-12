@@ -1,8 +1,7 @@
-import { Observable, EventData, PropertyChangeData } from 'tns-core-modules/data/observable';
+import { Observable } from 'tns-core-modules/data/observable';
 import { Page } from 'tns-core-modules/ui/page';
-import { Color } from 'tns-core-modules/color';
-import { Switch } from 'tns-core-modules/ui/switch';
 import { Slider } from 'tns-core-modules/ui/slider';
+import { fromNativeSource } from 'tns-core-modules/image-source/image-source';
 import { ColorPicker } from 'nativescript-color-picker';
 import { DrawingPad } from 'nativescript-drawingpad';
 
@@ -24,6 +23,10 @@ export class HelloWorldModel extends Observable {
   public getMyDrawing() {
     this._myDrawingPad.getDrawing().then(res => {
       console.log(res);
+      // convert native image data (bitmap on android) to imageSource for NS
+      var image = fromNativeSource(res);
+      console.log('trying to set image');
+      this.set('drawingImage', image);
     });
   }
 
@@ -35,6 +38,7 @@ export class HelloWorldModel extends Observable {
 
   public clearMyDrawing() {
     this._myDrawingPad.clearDrawing();
+    this.set('drawingImage', null);
   }
 
   public changePenColor() {
@@ -45,7 +49,6 @@ export class HelloWorldModel extends Observable {
     this._colorPicker
       .show('#3489db', 'HEX')
       .then(result => {
-        console.log('color int: ' + result);
         this.set('penColor', result);
       })
       .catch(err => {

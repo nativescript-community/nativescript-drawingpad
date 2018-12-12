@@ -1,21 +1,21 @@
 ﻿.title {
-    font-size: 26;
-    horizontal-align: center;
-    margin: 20;
+  font-size: 26;
+  horizontal-align: center;
+  margin: 20;
 }
 
-Button {
-    horizontal-align: center;
-    font-size: 18;
-    margin-left: 5
+button {
+  horizontal-align: center;
+  font-size: 18;
+  margin-left: 5;
 }
 
 .red {
-    color: darkred;
+  color: darkred;
 }
 
 .message {
-    font-size: 20;
-    color: #284848;
-    horizontal-align: center;
+  font-size: 20;
+  color: #284848;
+  horizontal-align: center;
 }

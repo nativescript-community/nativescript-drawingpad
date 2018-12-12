@@ -1,5 +1,4 @@
 *.js
-!demo/*.js
 !src/scripts/*.js
 *.js.map
 *.log
