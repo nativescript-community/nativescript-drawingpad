@@ -3,6 +3,10 @@ android {
   
 }
 
+repositories {
+     mavenCentral()
+}
+
 dependencies {
      compile "com.github.gcacace:signature-pad:1.2.1"
 }
