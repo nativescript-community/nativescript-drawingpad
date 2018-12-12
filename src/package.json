@@ -1,4 +1,20 @@
 {
+  "main": "drawingpad",
+  "name": "nativescript-drawingpad",
+  "nativescript": {
+    "platforms": {
+      "android": "3.0.0",
+      "ios": "3.0.0"
+    },
+    "plugin": {
+      "category": "Interface",
+      "core3": "true",
+      "nan": "true",
+      "pan": "true"
+    }
+  },
+  "typings": "index.d.ts",
+  "version": "3.0.4",
   "author": {
     "email": "bradmartinwaynemartin@gmail.com",
     "name": "Brad Martin",
@@ -26,16 +42,16 @@
   ],
   "description": "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
   "devDependencies": {
-    "husky": "^0.14.3",
-    "lint-staged": "^7.1.0",
-    "prettier": "^1.12.1",
+    "husky": "^1.2.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
     "prompt": "^1.0.0",
     "rimraf": "^2.5.0",
     "semver": "^5.5.0",
-    "tns-core-modules": "4.0.0",
-    "tns-platform-declarations": "4.0.0",
-    "tslint": "^5.0.0",
-    "typescript": "~2.8.1"
+    "tns-core-modules": "5.0.5",
+    "tns-platform-declarations": "5.0.5",
+    "tslint": "^5.11.0",
+    "typescript": "~3.2.2"
   },
   "homepage": "https://github.com/bradmartin/nativescript-drawingpad",
   "keywords": [
@@ -54,20 +70,6 @@
       "prettier --write",
       "git add"
     ]
-  },
-  "main": "drawingpad",
-  "name": "nativescript-drawingpad",
-  "nativescript": {
-    "platforms": {
-      "android": "3.0.0",
-      "ios": "3.0.0"
-    },
-    "plugin": {
-      "category": "Interface",
-      "core3": "true",
-      "nan": "true",
-      "pan": "true"
-    }
   },
   "peerDependencies": {
     "tns-core-modules": "^3.0.0 || >=4.0.0 || >=4.1.0"
@@ -93,8 +95,7 @@
     "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
     "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
     "tsc": "tsc -skipLibCheck",
-    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\""
-  },
-  "typings": "index.d.ts",
-  "version": "3.0.3"
+    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+    "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'"
+  }
 }
