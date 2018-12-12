@@ -2,7 +2,8 @@ import { View, Property } from 'tns-core-modules/ui/core/view';
 import { Color } from 'tns-core-modules/color';
 import { DrawingPad as DrawingPadDefinition } from '.';
 
-export abstract class DrawingPadBase extends View implements DrawingPadDefinition {
+export abstract class DrawingPadBase extends View
+  implements DrawingPadDefinition {
   public penColor: Color;
   public penWidth: number;
 

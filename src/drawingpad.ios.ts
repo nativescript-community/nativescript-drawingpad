@@ -1,19 +1,24 @@
 /// <reference path="./node_modules/tns-platform-declarations/ios.d.ts" />
+/// <reference path="./typings/SignatureView.d.ts" />
 
 import { Color } from 'tns-core-modules/color';
-import { DrawingPadBase, penColorProperty, penWidthProperty } from './drawingpad-common';
-
-declare var SignatureView: any;
+import {
+  DrawingPadBase,
+  penColorProperty,
+  penWidthProperty
+} from './drawingpad-common';
 
 export class DrawingPad extends DrawingPadBase {
+  public nativeView: SignatureView;
   constructor() {
     super();
-    // console.log('--------- DrawingPad ---------');
-    this.nativeView = SignatureView.alloc().initWithFrame(CGRectMake(0, 0, 100, 100));
+    this.nativeView = SignatureView.alloc().initWithFrame(
+      CGRectMake(0, 0, 100, 100)
+    );
     this.nativeView.clipsToBounds = true;
   }
 
-  get ios(): any {
+  get ios(): SignatureView {
     return this.nativeView;
   }
 
