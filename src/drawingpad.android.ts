@@ -1,7 +1,11 @@
 /// <reference path="./node_modules/tns-platform-declarations/android.d.ts" />
 
 import { Color } from 'tns-core-modules/color';
-import { DrawingPadBase, penColorProperty, penWidthProperty } from './drawingpad-common';
+import {
+  DrawingPadBase,
+  penColorProperty,
+  penWidthProperty
+} from './drawingpad-common';
 
 declare var com: any;
 
@@ -11,7 +15,10 @@ export class DrawingPad extends DrawingPadBase {
   }
 
   public createNativeView() {
-    const signaturePad = new com.github.gcacace.signaturepad.views.SignaturePad(this._context, null);
+    const signaturePad = new com.github.gcacace.signaturepad.views.SignaturePad(
+      this._context,
+      null
+    );
 
     if (this.penColor) {
       signaturePad.setPenColor(this.penColor.android);
@@ -77,7 +84,12 @@ export class DrawingPad extends DrawingPadBase {
 
           // Append viewbox to the svg for correct scaling
           const svgHeaderRegEx = /<svg (.*) height="(\d+)" width="(\d+)"(.*)>/i;
-          resolve(data.replace(svgHeaderRegEx, `<svg $1 viewBox="0, 0, $3, $2" height="$2" width="$3"$4>`));
+          resolve(
+            data.replace(
+              svgHeaderRegEx,
+              `<svg $1 viewBox="0, 0, $3, $2" height="$2" width="$3"$4>`
+            )
+          );
         } else {
           reject('DrawingPad is empty.');
         }

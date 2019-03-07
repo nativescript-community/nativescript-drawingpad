@@ -2,6 +2,7 @@
 /// <reference path="./typings/SignatureView.d.ts" />
 
 import { Color } from 'tns-core-modules/color';
+import { PercentLength } from 'tns-core-modules/ui/styling/style-properties';
 import {
   DrawingPadBase,
   penColorProperty,
@@ -39,10 +40,14 @@ export class DrawingPad extends DrawingPadBase {
 
   public onLoaded() {
     if (this.width) {
-      this.nativeView.frame.size.width = this.width;
+      this.nativeView.frame.size.width = PercentLength.toDevicePixels(
+        this.width
+      );
     }
     if (this.height) {
-      this.nativeView.frame.size.height = this.height;
+      this.nativeView.frame.size.height = PercentLength.toDevicePixels(
+        this.height
+      );
     }
     super.onLoaded();
   }
@@ -50,7 +55,7 @@ export class DrawingPad extends DrawingPadBase {
   public getDrawing(): Promise<any> {
     return new Promise((resolve, reject) => {
       try {
-        let isSigned = this.nativeView.isSigned();
+        const isSigned = this.nativeView.isSigned();
         if (isSigned === true) {
           const data = this.nativeView.signatureImage();
           resolve(data);
@@ -66,7 +71,7 @@ export class DrawingPad extends DrawingPadBase {
   public getDrawingSvg(): Promise<string> {
     return new Promise((resolve, reject) => {
       try {
-        let isSigned = this.nativeView.isSigned();
+        const isSigned = this.nativeView.isSigned();
         if (isSigned === true) {
           const data = this.nativeView.signatureSvg();
           resolve(data);
@@ -83,12 +88,12 @@ export class DrawingPad extends DrawingPadBase {
     try {
       if (this.backgroundColor) {
         let color = this.backgroundColor;
-        if (color.constructor == Color) {
-          color = (color as any).ios;
-        } else if (color.constructor == String) {
-          color = new Color(<any>color).ios;
+        if (color.constructor === Color) {
+          color = color as Color;
+        } else if (color.constructor === String) {
+          color = new Color(color as string);
         }
-        this.nativeView.clearWithColor(color);
+        this.nativeView.clearWithColor((color as Color).ios);
       } else {
         this.nativeView.clear();
       }

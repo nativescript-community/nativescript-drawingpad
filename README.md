@@ -11,20 +11,17 @@ NativeScript plugin to provide a way to capture any drawing (signatures are a co
     <a href="https://www.npmjs.com/package/nativescript-drawingpad">
         <img src="https://img.shields.io/npm/dt/nativescript-drawingpad.svg?label=npm%20downloads" alt="npm">
     </a>
+     <a href="https://travis-ci.org/bradmartin/nativescript-drawingpad">
+        <img src="https://travis-ci.org/bradmartin/nativescript-drawingpad.svg?branch=master" alt="build status">
+    </a>
     <a href="https://github.com/bradmartin/nativescript-drawingpad/stargazers">
         <img src="https://img.shields.io/github/stars/bradmartin/nativescript-drawingpad.svg" alt="stars">
-    </a>
-     <a href="https://github.com/bradmartin/nativescript-drawingpad/network">
-        <img src="https://img.shields.io/github/forks/bradmartin/nativescript-drawingpad.svg" alt="forks">
-    </a>
-    <a href="https://github.com/bradmartin/nativescript-drawingpad/blob/master/src/LICENSE.md">
-        <img src="https://img.shields.io/github/license/bradmartin/nativescript-drawingpad.svg" alt="license">
     </a>
     <a href="https://paypal.me/bradwayne88">
         <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate">
     </a>
-    <a href="http://nstudio.io">
-      <img src="./images/nstudio-banner.png" alt="nStudio banner">
+    <a href="https://nstudio.io">
+      <img src="https://github.com/nstudio/media/blob/master/images/nstudio-banner.png" alt="nStudio banner">
     </a>
     <h5 align="center">Do you need assistance on your project or plugin? Contact the nStudio team anytime at <a href="mailto:team@nstudio.io">team@nstudio.io</a> to get up to speed with the best practices in mobile and web app development.
     </h5>
@@ -96,7 +93,7 @@ import { DrawingPad } from 'nativescript-drawingpad';
       let drawingPad = topmost().getViewById('myDrawingPad');
       drawingPad.getDrawing().then((res) => {
           console.log(res);
-       });  
+       });
     }
 
 
@@ -113,7 +110,10 @@ public clearMyDrawing() {
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { registerElement } from 'nativescript-angular/element-registry';
 
-registerElement('DrawingPad', () => require('nativescript-drawingpad').DrawingPad);
+registerElement(
+  'DrawingPad',
+  () => require('nativescript-drawingpad').DrawingPad
+);
 
 @Component({
   selector: 'drawing-pad-example',
@@ -181,4 +181,4 @@ Attribute to specify the pen (stroke) width to use.
 
 #### _Android Only_
 
-* **getTransparentDrawing()** - Promise (returns a bitmap with a transparent background)
+- **getTransparentDrawing()** - Promise (returns a bitmap with a transparent background)

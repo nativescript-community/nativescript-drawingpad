@@ -12,7 +12,7 @@ export function pageLoaded(args: EventData) {
   page.bindingContext = new HelloWorldModel(page);
 
   if (isAndroid && device.sdkVersion >= '21') {
-    let window = android.startActivity.getWindow();
+    const window = android.startActivity.getWindow();
     window.setStatusBarColor(new Color('#336699').android);
   }
 }
