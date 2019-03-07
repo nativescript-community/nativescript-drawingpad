@@ -24,7 +24,7 @@ export class HelloWorldModel extends Observable {
     this._myDrawingPad.getDrawing().then(res => {
       console.log(res);
       // convert native image data (bitmap on android) to imageSource for NS
-      var image = fromNativeSource(res);
+      const image = fromNativeSource(res);
       console.log('trying to set image');
       this.set('drawingImage', image);
     });
