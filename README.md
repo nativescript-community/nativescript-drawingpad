@@ -61,6 +61,10 @@ From your command prompt/termial go to your app's root folder and execute:
 
 [Egghead lesson - https://egghead.io/lessons/javascript-capture-drawings-and-signatures-in-a-nativescript-app](https://egghead.io/lessons/javascript-capture-drawings-and-signatures-in-a-nativescript-app)
 
+## Written Tutorial
+
+[Blog post using Angular - http://tylerablake.com/nativescript/2019/05/02/capturing-signatures.html](http://tylerablake.com/nativescript/2019/05/02/capturing-signatures.html)
+
 ## Usage
 
 #### XML:
