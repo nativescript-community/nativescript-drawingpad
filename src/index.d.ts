@@ -1,5 +1,5 @@
-import { View } from 'tns-core-modules/ui/core/view';
 import { Color } from 'tns-core-modules/color';
+import { View } from 'tns-core-modules/ui/core/view';
 
 export class DrawingPad extends View {
   android: any;
@@ -10,23 +10,28 @@ export class DrawingPad extends View {
    */
 
   penColor: Color;
+
   /**
    * Gets/sets the drawing width of the pen.
    */
 
   penWidth: number;
+
   /**
+   * *** iOS Only ***
    * Gets/sets whether a long press will clear the view.
    */
 
   clearOnLongPress: boolean;
+
   /**
    * Returns native image.
    */
   getDrawing(): Promise<any>;
 
   /**
-   * Returns a bitmap with a transparent background *** ANDROID ONLY ***
+   * *** ANDROID ONLY ***
+   * Returns a bitmap with a transparent background.
    */
   getTransparentDrawing(): Promise<any>;
 
