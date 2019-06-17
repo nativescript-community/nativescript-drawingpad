@@ -33,17 +33,9 @@ NativeScript plugin to provide a way to capture any drawing (signatures are a co
 
 From your command prompt/termial go to your app's root folder and execute:
 
-#### NativeScript 4x
+#### NativeScript
 
 `tns plugin add nativescript-drawingpad`
-
-#### NativeScript 3x
-
-`tns plugin add nativescript-drawingpad@2.1.1`
-
-#### NativeScript < 3
-
-`tns plugin add nativescript-drawingpad@1.1.2`
 
 ## Samples
 
@@ -94,7 +86,7 @@ import { DrawingPad } from 'nativescript-drawingpad';
 // To get the drawing...
 
   public getMyDrawing() {
-      let drawingPad = topmost().getViewById('myDrawingPad');
+      const drawingPad = topmost().getViewById('myDrawingPad');
       drawingPad.getDrawing().then((res) => {
           console.log(res);
        });
@@ -103,7 +95,7 @@ import { DrawingPad } from 'nativescript-drawingpad';
 
 // If you want to clear the signature/drawing...
 public clearMyDrawing() {
-    let drawingPad = topmost().getViewById('myDrawingPad');
+    const drawingPad = topmost().getViewById('myDrawingPad');
     drawingPad.clearDrawing();
 }
 ```
@@ -143,37 +135,38 @@ export class DrawingPadExample {
 
   getMyDrawing(args) {
     // get reference to the drawing pad
-    let pad = this.DrawingPad.nativeElement;
+    const pad = this.DrawingPad.nativeElement;
 
     // then get the drawing (Bitmap on Android) of the drawingpad
     let drawingImage;
     pad.getDrawing().then(
-      function(data) {
+      data => {
         console.log(data);
         drawingImage = data;
       },
-      function(err) {
+      err => {
         console.log(err);
       }
     );
   }
 
   clearMyDrawing(args) {
-    var pad = this.DrawingPad.nativeElement;
+    const pad = this.DrawingPad.nativeElement;
     pad.clearDrawing();
   }
 }
 ```
 
-## Attributes
+## Properties
 
 **penColor - (Color)** - _optional_
-
-Attribute to specify the pen (stroke) color to use.
+Property to specify the pen (stroke) color to use.
 
 **penWidth - (int)** - _optional_
+Property to specify the pen (stroke) width to use.
 
-Attribute to specify the pen (stroke) width to use.
+**clearOnLongPress - (boolean = true)** - _optional_ **_iOS Only_**
+Gets/sets whether a long press will clear the view.
 
 ## Methods
 
