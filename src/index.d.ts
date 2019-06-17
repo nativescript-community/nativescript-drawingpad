@@ -16,6 +16,11 @@ export class DrawingPad extends View {
 
   penWidth: number;
   /**
+   * Gets/sets whether a long press will clear the view.
+   */
+
+  clearOnLongPress: boolean;
+  /**
    * Returns native image.
    */
   getDrawing(): Promise<any>;
