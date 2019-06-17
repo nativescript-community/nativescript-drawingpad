@@ -6,11 +6,13 @@ import { PercentLength } from 'tns-core-modules/ui/styling/style-properties';
 import {
   DrawingPadBase,
   penColorProperty,
-  penWidthProperty
+  penWidthProperty,
+  clearOnLongPressProperty
 } from './drawingpad-common';
 
 export class DrawingPad extends DrawingPadBase {
   public nativeView: SignatureView;
+  private _clearOnLongPress: boolean = true;
   constructor() {
     super();
     this.nativeView = SignatureView.alloc().initWithFrame(
@@ -36,6 +38,20 @@ export class DrawingPad extends DrawingPadBase {
   [penColorProperty.setNative](value: Color | UIColor) {
     const color = value instanceof Color ? value.ios : value;
     this.nativeView.setLineColor(color);
+  }
+
+  [clearOnLongPressProperty.getDefault](): boolean {
+    return this._clearOnLongPress;
+  }
+
+  [clearOnLongPressProperty.setNative](value: boolean) {
+    this._clearOnLongPress = value;
+    const rec = this.nativeView.recognizer;
+    if (!this._clearOnLongPress) {
+      rec && this.nativeView.removeGestureRecognizer(rec);
+    } else {
+      rec && this.nativeView.addGestureRecognizer(rec);
+    }
   }
 
   public onLoaded() {

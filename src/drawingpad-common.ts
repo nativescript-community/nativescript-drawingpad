@@ -6,6 +6,7 @@ export abstract class DrawingPadBase extends View
   implements DrawingPadDefinition {
   public penColor: Color;
   public penWidth: number;
+  public clearOnLongPress: boolean;
 
   public abstract clearDrawing(): void;
   public abstract getDrawing(): Promise<any>;
@@ -30,3 +31,9 @@ export const penWidthProperty = new Property<DrawingPadBase, number>({
   valueConverter: v => +v
 });
 penWidthProperty.register(DrawingPadBase);
+
+export const clearOnLongPressProperty = new Property<DrawingPadBase, boolean>({
+  name: 'clearOnLongPress',
+  defaultValue: true
+});
+clearOnLongPressProperty.register(DrawingPadBase);
