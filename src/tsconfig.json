@@ -1,26 +1,34 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "skipLibCheck": true,
+    "target": "es2017",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "declaration": true,
     "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "declaration": false,
-    "noEmitOnError": false,
+    "skipLibCheck": true,
+    "lib": ["es2017", "dom"],
+    "sourceMap": true,
+    "pretty": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
     "noEmitHelpers": true,
-    "noImplicitUseStrict": true,
-    "lib": ["es6", "dom"],
+    "noEmitOnError": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
     "rootDir": ".",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["./node_modules/tns-core-modules/*", "./node_modules/*"]
-    }
+    "baseUrl": "."
   },
   "files": [
+    "references.d.ts",
     "index.d.ts",
     "drawingpad-common.ts",
-    "drawingpad.android.ts",
-    "drawingpad.ios.ts"
+    "index.android.ts",
+    "index.ios.ts"
   ],
   "exclude": ["node_modules"],
   "compileOnSave": false

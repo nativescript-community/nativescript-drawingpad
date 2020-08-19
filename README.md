@@ -80,13 +80,13 @@ From your command prompt/termial go to your app's root folder and execute:
 ### TS:
 
 ```TS
-import { topmost } from 'ui/frame';
-import { DrawingPad } from 'nativescript-drawingpad';
+import { Frame } from '@nativescript/core';
+import { DrawingPad } from '@nativescript-community/drawingpad';
 
 // To get the drawing...
 
   public getMyDrawing() {
-      const drawingPad = topmost().getViewById('myDrawingPad');
+      const drawingPad = Frame.topmost().getViewById('myDrawingPad');
       drawingPad.getDrawing().then((res) => {
           console.log(res);
        });
@@ -95,7 +95,7 @@ import { DrawingPad } from 'nativescript-drawingpad';
 
 // If you want to clear the signature/drawing...
 public clearMyDrawing() {
-    const drawingPad = topmost().getViewById('myDrawingPad');
+    const drawingPad = Frame.topmost().getViewById('myDrawingPad');
     drawingPad.clearDrawing();
 }
 ```
@@ -104,11 +104,12 @@ public clearMyDrawing() {
 
 ```javascript
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { registerElement } from 'nativescript-angular/element-registry';
+import { registerElement } from '@nativescript/angular';
+import { DrawingPad } from '@nativescript-community/drawingpad';
 
 registerElement(
   'DrawingPad',
-  () => require('nativescript-drawingpad').DrawingPad
+  () => DrawingPad
 );
 
 @Component({

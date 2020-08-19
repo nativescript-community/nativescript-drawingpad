@@ -1,13 +1,9 @@
-/// <reference path="./node_modules/tns-platform-declarations/ios.d.ts" />
-/// <reference path="./typings/SignatureView.d.ts" />
-
-import { Color } from 'tns-core-modules/color';
-import { PercentLength } from 'tns-core-modules/ui/styling/style-properties';
+import { Color, PercentLength } from '@nativescript/core';
 import {
   DrawingPadBase,
   penColorProperty,
   penWidthProperty,
-  clearOnLongPressProperty
+  clearOnLongPressProperty,
 } from './drawingpad-common';
 
 export class DrawingPad extends DrawingPadBase {
