@@ -1,10 +1,8 @@
-/// <reference path="./node_modules/tns-platform-declarations/android.d.ts" />
-
-import { Color } from 'tns-core-modules/color';
+import { Color } from '@nativescript/core';
 import {
   DrawingPadBase,
   penColorProperty,
-  penWidthProperty
+  penWidthProperty,
 } from './drawingpad-common';
 
 declare var com: any;
