@@ -5,26 +5,15 @@
 NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device. You can use this component to capture really anything you want that can be drawn on the screen.</h4>
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/nativescript-drawingpad">
-        <img src="https://img.shields.io/npm/v/nativescript-drawingpad.svg" alt="npm">
+   <a href="https://github.com/bradmartin/nativescript-drawingpad/actions?query=workflow%3A%22Build+CI%22">
+        <img src="https://github.com/bradmartin/nativescript-drawingpad/workflows/Build%20CI/badge.svg" alt="Action Build">
     </a>
-    <a href="https://www.npmjs.com/package/nativescript-drawingpad">
-        <img src="https://img.shields.io/npm/dt/nativescript-drawingpad.svg?label=npm%20downloads" alt="npm">
+    <a href="https://www.npmjs.com/package/@nativescript-community/drawingpad">
+        <img src="https://img.shields.io/npm/v/@nativescript-community/drawingpad.svg" alt="npm">
     </a>
-     <a href="https://travis-ci.org/bradmartin/nativescript-drawingpad">
-        <img src="https://travis-ci.org/bradmartin/nativescript-drawingpad.svg?branch=master" alt="build status">
+    <a href="https://www.npmjs.com/package/@nativescript-community/drawingpad">
+        <img src="https://img.shields.io/npm/dt/@nativescript-community/drawingpad.svg?label=npm%20downloads" alt="npm">
     </a>
-    <a href="https://github.com/bradmartin/nativescript-drawingpad/stargazers">
-        <img src="https://img.shields.io/github/stars/bradmartin/nativescript-drawingpad.svg" alt="stars">
-    </a>
-    <a href="https://paypal.me/bradwayne88">
-        <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate">
-    </a>
-    <a href="https://nstudio.io">
-      <img src="https://github.com/nstudio/media/blob/master/images/nstudio-banner.png" alt="nStudio banner">
-    </a>
-    <h5 align="center">Do you need assistance on your project or plugin? Contact the nStudio team anytime at <a href="mailto:team@nstudio.io">team@nstudio.io</a> to get up to speed with the best practices in mobile and web app development.
-    </h5>
 </p>
 
 ---
@@ -70,7 +59,7 @@ tns plugin add nativescript-drawingpad
 #### XML:
 
 ```XML
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:DrawingPad="@nativescript-community/drawingpad" loaded="pageLoaded">
     <ActionBar title="NativeScript-DrawingPad" />
     <ScrollView>
         <StackLayout>
