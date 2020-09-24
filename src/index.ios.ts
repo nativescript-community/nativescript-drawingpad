@@ -1,9 +1,9 @@
 import { Color, PercentLength } from '@nativescript/core';
 import {
+  clearOnLongPressProperty,
   DrawingPadBase,
   penColorProperty,
-  penWidthProperty,
-  clearOnLongPressProperty,
+  penWidthProperty
 } from './drawingpad-common';
 
 export class DrawingPad extends DrawingPadBase {
@@ -17,9 +17,9 @@ export class DrawingPad extends DrawingPadBase {
     this.nativeView.clipsToBounds = true;
   }
 
-  get ios(): SignatureView {
-    return this.nativeView;
-  }
+  // get ios(): SignatureView {
+  //   return this.nativeView;
+  // }
 
   [penWidthProperty.getDefault](): number {
     return this.nativeView.foregroundLineWidth;

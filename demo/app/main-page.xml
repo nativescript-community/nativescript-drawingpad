@@ -1,5 +1,5 @@
-<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
-    xmlns:DrawingPad="nativescript-drawingpad" loaded="pageLoaded">
+<Page xmlns="http://schemas.nativescript.org/tns.xsd"
+    xmlns:DrawingPad="@nativescript-community/drawingpad" loaded="pageLoaded">
     <ActionBar title="NativeScript-DrawingPad" color="#fff" backgroundColor="#3489db" />
     <ScrollView>
         <StackLayout>

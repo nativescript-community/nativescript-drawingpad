@@ -1,30 +1,26 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.demo",
-    "tns-android": {
-      "version": "5.2.1"
-    }
-  },
   "dependencies": {
-    "nativescript-color-picker": "^1.5.0",
-    "nativescript-drawingpad": "../src",
+    "nativescript-color-picker": "~1.6.0",
+    "@nativescript-community/drawingpad": "file:../src",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-unit-test-runner": "^0.5.0",
-    "tns-core-modules": "^5.2.2"
+    "@nativescript/core": "~7.0.5"
   },
   "devDependencies": {
+    "@nativescript/android": "7.0.0",
+    "@nativescript/types": "~7.0.4",
+    "@nativescript/webpack": "~3.0.4",
     "jasmine-core": "3.3.0",
     "karma": "4.0.1",
     "karma-jasmine": "1.1.2",
     "karma-nativescript-launcher": "0.4.0",
     "nativescript-dev-typescript": "~0.8.0",
-    "nativescript-dev-webpack": "^0.20.2",
-    "tns-platform-declarations": "^5.2.2",
     "tslint": "~5.13.1",
-    "typescript": "~3.1.6"
+    "typescript": "~3.9.7"
   },
   "scripts": {
     "build.plugin": "cd ../src && npm run build",
     "ci.tslint": "npm i && tslint --config '../tslint.json' 'app/**/*.ts' --exclude '**/node_modules/**' --exclude '**/platforms/**'"
-  }
+  },
+  "main": "app.js"
 }

@@ -1,4 +1,4 @@
-import { View, Property, Color } from '@nativescript/core';
+import { Color, Property, View } from '@nativescript/core';
 
 export abstract class DrawingPadBase extends View {
   public penColor: Color;
@@ -17,20 +17,20 @@ export abstract class DrawingPadBase extends View {
 
 export const penColorProperty = new Property<DrawingPadBase, Color>({
   name: 'penColor',
-  valueConverter: (v) => new Color(v),
-  equalityComparer: Color.equals,
+  valueConverter: v => new Color(v),
+  equalityComparer: Color.equals
 });
 penColorProperty.register(DrawingPadBase);
 
 export const penWidthProperty = new Property<DrawingPadBase, number>({
   name: 'penWidth',
   defaultValue: 1,
-  valueConverter: (v) => +v,
+  valueConverter: v => +v
 });
 penWidthProperty.register(DrawingPadBase);
 
 export const clearOnLongPressProperty = new Property<DrawingPadBase, boolean>({
   name: 'clearOnLongPress',
-  defaultValue: true,
+  defaultValue: true
 });
 clearOnLongPressProperty.register(DrawingPadBase);

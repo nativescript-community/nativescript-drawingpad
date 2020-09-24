@@ -42,14 +42,14 @@
   ],
   "description": "A NativeScript plugin to provide a way to capture any drawing (signatures are a common use case) from the device screen.",
   "devDependencies": {
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
-    "@nativescript/core": "rc",
-    "@nativescript/types": "rc",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "@nativescript/core": "~7.0.5",
+    "@nativescript/types": "~7.0.4",
     "rimraf": "^3.0.2",
     "tslint": "~6.1.3",
-    "typescript": "~3.9.0"
+    "typescript": "~3.9.7"
   },
   "homepage": "https://github.com/bradmartin/nativescript-drawingpad",
   "keywords": [
@@ -59,7 +59,6 @@
     "signature",
     "drawing",
     "drawing pad",
-    "bradmartin",
     "nStudio"
   ],
   "license": "Apache-2.0",
@@ -68,14 +67,12 @@
     "tsc": "tsc",
     "build": "npm i && tsc",
     "build.native": "node scripts/build-native.js",
-    "test.android": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
-    "test.ios": "npm i && npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
+    "test.android": "npm run build && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
+    "test.ios": "npm run build && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
     "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\" --exclude \"*demo*/platforms/**\"",
-    "plugin.link": "npm link && cd ../demo && npm link nativescript-geolocation && cd ../src",
-    "plugin.tscwatch": "npm run tsc -- -w",
-    "demo.ios": "npm i && npm run tsc && cd ../demo && tns run ios --syncAllFiles",
-    "demo.android": "npm i && npm run tsc && cd ../demo && tns run android --syncAllFiles",
-    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
+    "demo.ios": "npm run build && cd ../demo && tns run ios",
+    "demo.android": "npm run build && cd ../demo && tns run android",
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/typings/**'",
     "precommit": "lint-staged",
     "generate.typings.ios": "cd ../demo && TNS_DEBUG_METADATA_PATH=\"$(pwd)/metadata\" tns build ios && TNS_TYPESCRIPT_DECLARATIONS_PATH=\"$(pwd)/typings\" tns build ios && echo 'Now look for your library typings in demo/typings!'"
   },

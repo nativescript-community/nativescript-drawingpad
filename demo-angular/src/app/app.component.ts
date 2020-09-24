@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { registerElement } from 'nativescript-angular/element-registry';
-import { DrawingPad } from 'nativescript-drawingpad';
+import { DrawingPad } from '@nativescript-community/drawingpad';
+import { registerElement } from '@nativescript/angular';
 
 registerElement('DrawingPad', () => DrawingPad);
 

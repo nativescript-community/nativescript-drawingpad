@@ -1,41 +1,35 @@
 {
-  "nativescript": {
-    "id": "org.nativescript.demoangular",
-    "tns-android": {
-      "version": "5.2.1"
-    },
-    "tns-ios": {
-      "version": "5.2.0"
-    }
-  },
   "description": "NativeScript Application",
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@angular/animations": "~7.2.0",
-    "@angular/common": "~7.2.0",
-    "@angular/compiler": "~7.2.0",
-    "@angular/core": "~7.2.0",
-    "@angular/forms": "~7.2.0",
-    "@angular/http": "~7.2.0",
-    "@angular/platform-browser": "~7.2.0",
-    "@angular/platform-browser-dynamic": "~7.2.0",
-    "@angular/router": "~7.2.0",
-    "nativescript-angular": "~7.2.1",
+    "@angular/animations": "~10.1.0",
+    "@angular/common": "~10.1.0",
+    "@angular/compiler": "~10.1.0",
+    "@angular/core": "~10.1.0",
+    "@angular/forms": "~10.1.0",
+    "@angular/http": "^7.2.16",
+    "@angular/platform-browser": "~10.1.0",
+    "@angular/platform-browser-dynamic": "~10.1.0",
+    "@angular/router": "~10.1.0",
     "nativescript-theme-core": "~1.0.4",
-    "nativescript-drawingpad": "file:../src",
+    "@nativescript-community/drawingpad": "file:../src",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.3.0",
-    "tns-core-modules": "~5.2.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@nativescript/core": "~7.0.5",
+    "@nativescript/angular": "10.1.5"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "~7.2.0",
+    "@angular/compiler-cli": "~10.1.0",
+    "@nativescript/android": "7.0.0",
     "@nativescript/schematics": "~0.5.0",
+    "@nativescript/types": "7.0.0",
+    "@nativescript/webpack": "~3.0.0",
     "@ngtools/webpack": "~7.2.0",
-    "nativescript-dev-typescript": "~0.8.0",
-    "nativescript-dev-webpack": "~0.20.0"
+    "typescript": "~3.9.7"
   },
   "gitHead": "f548ec926e75201ab1b7c4a3a7ceefe7a4db15af",
-  "readme": "NativeScript Application"
+  "readme": "NativeScript Application",
+  "main": "main.js"
 }

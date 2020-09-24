@@ -33,9 +33,17 @@ NativeScript plugin to provide a way to capture any drawing (signatures are a co
 
 From your command prompt/termial go to your app's root folder and execute:
 
-#### NativeScript
+#### NativeScript 7+:
 
-`tns plugin add nativescript-drawingpad`
+```bash
+ns plugin add @nativescript-community/drawingpad
+```
+
+#### NativeScript < 7:
+
+```bash
+tns plugin add nativescript-drawingpad
+```
 
 ## Samples
 
@@ -107,29 +115,29 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { registerElement } from '@nativescript/angular';
 import { DrawingPad } from '@nativescript-community/drawingpad';
 
-registerElement(
-  'DrawingPad',
-  () => DrawingPad
-);
+registerElement('DrawingPad', () => DrawingPad);
 
 @Component({
   selector: 'drawing-pad-example',
   template: `
     <ScrollView>
-        <StackLayout>
-            <DrawingPad #DrawingPad 
-            height="400" 
-            id="drawingPad" 
-            penColor="#ff4081" penWidth="3">
-            </DrawingPad>
+      <StackLayout>
+        <DrawingPad
+          #DrawingPad
+          height="400"
+          id="drawingPad"
+          penColor="#ff4081"
+          penWidth="3"
+        >
+        </DrawingPad>
 
-            <StackLayout orientation="horizontal">
-                <Button text="Get Drawing" (tap)="getMyDrawing()"></Button>
-                <Button text="Clear Drawing" (tap)="clearMyDrawing()"></Button>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+          <Button text="Get Drawing" (tap)="getMyDrawing()"></Button>
+          <Button text="Clear Drawing" (tap)="clearMyDrawing()"></Button>
         </StackLayout>
+      </StackLayout>
     </ScrollView>
-    `
+  `
 })
 export class DrawingPadExample {
   @ViewChild('DrawingPad') DrawingPad: ElementRef;

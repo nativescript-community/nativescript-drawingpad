@@ -2,15 +2,15 @@ import { Color } from '@nativescript/core';
 import {
   DrawingPadBase,
   penColorProperty,
-  penWidthProperty,
+  penWidthProperty
 } from './drawingpad-common';
 
 declare var com: any;
 
 export class DrawingPad extends DrawingPadBase {
-  get android() {
-    return this.nativeView;
-  }
+  // get android() {
+  //   return this.nativeView;
+  // }
 
   public createNativeView() {
     const signaturePad = new com.github.gcacace.signaturepad.views.SignaturePad(

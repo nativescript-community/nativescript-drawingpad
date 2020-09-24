@@ -1,9 +1,6 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import { Page } from 'tns-core-modules/ui/page';
-import { Slider } from 'tns-core-modules/ui/slider';
-import { fromNativeSource } from 'tns-core-modules/image-source/image-source';
+import { DrawingPad } from '@nativescript-community/drawingpad';
+import { ImageSource, Observable, Page, Slider } from '@nativescript/core';
 import { ColorPicker } from 'nativescript-color-picker';
-import { DrawingPad } from 'nativescript-drawingpad';
 
 export class HelloWorldModel extends Observable {
   private _myDrawingPad: DrawingPad;
@@ -24,7 +21,7 @@ export class HelloWorldModel extends Observable {
     this._myDrawingPad.getDrawing().then(res => {
       console.log(res);
       // convert native image data (bitmap on android) to imageSource for NS
-      const image = fromNativeSource(res);
+      const image = ImageSource.fromDataSync(res);
       console.log('trying to set image');
       this.set('drawingImage', image);
     });
