@@ -1,4 +1,4 @@
-import { Color, PercentLength } from '@nativescript/core';
+import { Color, ImageSource, PercentLength } from '@nativescript/core';
 import {
   clearOnLongPressProperty,
   DrawingPadBase,
@@ -76,6 +76,26 @@ export class DrawingPad extends DrawingPadBase {
         }
       } catch (err) {
         reject(err);
+      }
+    });
+  }
+
+  public getDrawingAsBase64(
+    format: 'png' | 'jpg' | 'jpeg' = 'png'
+  ): Promise<string> {
+    return new Promise((resolve, reject) => {
+      try {
+        const isSigned = this.nativeView.isSigned();
+        if (isSigned === true) {
+          const data = this.nativeView.signatureImage();
+          const img = new ImageSource(data);
+          const base64Img = img.toBase64String(format);
+          resolve(base64Img);
+        } else {
+          reject('DrawingPad is empty.');
+        }
+      } catch (error) {
+        reject(error);
       }
     });
   }

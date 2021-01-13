@@ -7,9 +7,10 @@ export abstract class DrawingPadBase extends View {
 
   public abstract clearDrawing(): void;
   public abstract getDrawing(): Promise<any>;
+  public abstract getDrawingAsBase64(): Promise<string>;
   public getTransparentDrawing(): Promise<any> {
     return new Promise<any>((resolve, reject) => {
-      resolve();
+      resolve(null);
     });
   }
   public abstract getDrawingSvg(): Promise<string>;

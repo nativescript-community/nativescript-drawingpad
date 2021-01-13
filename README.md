@@ -77,17 +77,21 @@ tns plugin add nativescript-drawingpad
 ### TS:
 
 ```TS
-import { Frame } from '@nativescript/core';
+import { Frame, ImageSource } from '@nativescript/core';
 import { DrawingPad } from '@nativescript-community/drawingpad';
 
 // To get the drawing...
-
-  public getMyDrawing() {
-      const drawingPad = Frame.topmost().getViewById('myDrawingPad');
-      drawingPad.getDrawing().then((res) => {
-          console.log(res);
-       });
-    }
+public getMyDrawing() {
+    const drawingPad = Frame.topmost().getViewById('myDrawingPad');
+    drawingPad.getDrawing().then((res) => {
+        console.log(res);
+        // At this point you have a native image (Bitmap on Android or UIImage on iOS)
+        // so lets convert to a NS Image using the ImageSource
+        const img = new ImageSource(res); // this can be set as the `src` of an `Image` inside your NSapplication now.
+        // now you might want a base64 version of the image
+        const base64imageString = image.toBase64String('jpg'); // if you need it as base64
+    });
+}
 
 
 // If you want to clear the signature/drawing...
@@ -102,6 +106,7 @@ public clearMyDrawing() {
 ```javascript
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { registerElement } from '@nativescript/angular';
+import { ImageSource } from '@nativescript/core';
 import { DrawingPad } from '@nativescript-community/drawingpad';
 
 registerElement('DrawingPad', () => DrawingPad);
@@ -140,7 +145,12 @@ export class DrawingPadExample {
     pad.getDrawing().then(
       data => {
         console.log(data);
-        drawingImage = data;
+        // At this point you have a native image (Bitmap on Android or UIImage on iOS)
+        // so lets convert to a NS Image using the ImageSource
+        const img = new ImageSource(res); // this can be set as the `src` of an `Image` inside your NS
+        drawingImage = img; // to set the src of an Image if needed.
+        // now you might want a base64 version of the image
+        const base64imageString = image.toBase64String('jpg'); // if you need it as base64
       },
       err => {
         console.log(err);
@@ -169,6 +179,8 @@ Gets/sets whether a long press will clear the view.
 ## Methods
 
 **getDrawing()** - Promise _(returns image if successful)_
+
+**getDrawingAsBase64(format?: "png" | "jpg" | "jpeg")** - Promise _(returns image as base64 string if successful)_
 
 **clearDrawing()** - clears the drawing from the DrawingPad view.
 

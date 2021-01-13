@@ -29,6 +29,12 @@ export class DrawingPad extends View {
   getDrawing(): Promise<any>;
 
   /**
+   * Returns the image as base64 string.
+   * @param format - The format of the image when converting to ImageSource. "png" | "jpg" | "jpeg". Default is "png".
+   */
+  getDrawingAsBase64(format: 'png' | 'jpg' | 'jpeg'): Promise<string>;
+
+  /**
    * *** ANDROID ONLY ***
    * Returns a bitmap with a transparent background.
    */

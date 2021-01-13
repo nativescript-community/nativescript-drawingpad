@@ -1,4 +1,4 @@
-import { Color } from '@nativescript/core';
+import { Color, ImageSource } from '@nativescript/core';
 import {
   DrawingPadBase,
   penColorProperty,
@@ -55,6 +55,25 @@ export class DrawingPad extends DrawingPadBase {
         }
       } catch (err) {
         reject(err);
+      }
+    });
+  }
+
+  public getDrawingAsBase64(
+    format: 'png' | 'jpg' | 'jpeg' = 'png'
+  ): Promise<string> {
+    return new Promise((resolve, reject) => {
+      try {
+        if (!this.nativeView.isEmpty()) {
+          const bitmap = this.nativeView.getSignatureBitmap();
+          const img = new ImageSource(bitmap);
+          const base64Img = img.toBase64String(format);
+          resolve(base64Img);
+        } else {
+          reject('DrawingPad is empty.');
+        }
+      } catch (error) {
+        reject(error);
       }
     });
   }
