@@ -4,19 +4,18 @@
     "@nativescript-community/drawingpad": "file:../src",
     "nativescript-theme-core": "~1.0.4",
     "nativescript-unit-test-runner": "^0.5.0",
-    "@nativescript/core": "~7.0.5"
+    "@nativescript/core": "~7.1.1"
   },
   "devDependencies": {
-    "@nativescript/android": "7.0.0",
-    "@nativescript/types": "~7.0.4",
-    "@nativescript/webpack": "~3.0.4",
+    "@nativescript/android": "7.0.1",
+    "@nativescript/types": "~7.1.0",
+    "@nativescript/webpack": "~4.0.0",
     "jasmine-core": "3.3.0",
     "karma": "4.0.1",
     "karma-jasmine": "1.1.2",
     "karma-nativescript-launcher": "0.4.0",
-    "nativescript-dev-typescript": "~0.8.0",
     "tslint": "~5.13.1",
-    "typescript": "~3.9.7"
+    "typescript": "~4.1.3"
   },
   "scripts": {
     "build.plugin": "cd ../src && npm run build",
