@@ -2,7 +2,7 @@
   "name": "@nativescript-community/drawingpad",
   "main": "index",
   "typings": "index.d.ts",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "nativescript": {
     "platforms": {
       "android": "3.0.0",
