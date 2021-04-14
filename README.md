@@ -142,17 +142,16 @@ export class DrawingPadExample {
 
     // then get the drawing (Bitmap on Android) of the drawingpad
     let drawingImage;
-    pad.getDrawing().then(
-      data => {
+    pad.getDrawing().then((data) => {
         console.log(data);
         // At this point you have a native image (Bitmap on Android or UIImage on iOS)
         // so lets convert to a NS Image using the ImageSource
-        const img = new ImageSource(res); // this can be set as the `src` of an `Image` inside your NS
+        const img = new ImageSource(data); // this can be set as the `src` of an `Image` inside your NS
         drawingImage = img; // to set the src of an Image if needed.
         // now you might want a base64 version of the image
         const base64imageString = image.toBase64String('jpg'); // if you need it as base64
       },
-      err => {
+      (err) => {
         console.log(err);
       }
     );
