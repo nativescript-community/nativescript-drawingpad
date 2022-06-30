@@ -1,0 +1,6 @@
+{
+    "uses": [
+         "android.graphics:Bitmap",
+         "com.github.gcacace.signaturepad.views:SignaturePad"
+    ]
+}
