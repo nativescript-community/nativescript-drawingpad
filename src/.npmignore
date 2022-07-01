@@ -31,6 +31,7 @@ tsconfig.json
 scripts/*
 platforms/android/*
 !platforms/android/include.gradle
+!platforms/android/native-api-usage.json
 !platforms/android/*.aar
 !platforms/android/*.jar
 *.tgz
