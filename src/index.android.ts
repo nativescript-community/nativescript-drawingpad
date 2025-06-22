@@ -99,14 +99,19 @@ export class DrawingPad extends DrawingPadBase {
         if (!this.nativeView.isEmpty()) {
           const data: string = this.nativeView.getSignatureSvg();
 
-          // Append viewbox to the svg for correct scaling
-          const svgHeaderRegEx = /<svg (.*) height="(\d+)" width="(\d+)"(.*)>/i;
-          resolve(
-            data.replace(
-              svgHeaderRegEx,
-              `<svg $1 viewBox="0, 0, $3, $2" height="$2" width="$3"$4>`
-            )
-          );
+          // Append viewbox to the svg for correct scaling (IF NEEDED)
+          if (data.indexOf('viewBox') === -1) {
+            const svgHeaderRegEx = /<svg (.*) height="(\d+)" width="(\d+)"(.*)>/i;
+            resolve(
+              data.replace(
+                svgHeaderRegEx,
+                `<svg $1 viewBox="0, 0, $3, $2" height="$2" width="$3"$4>`
+              )
+            );
+          } else {
+            resolve(data);
+          }
+
         } else {
           reject('DrawingPad is empty.');
         }
